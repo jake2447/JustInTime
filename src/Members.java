@@ -7,4 +7,8 @@ public class Members {
 	public Members(){
 		userList = new ArrayList<User>();
 	}
+	
+	public Members(ArrayList<User> existingUserList){
+		userList = new ArrayList<User>(existingUserList);
+	}
 }
