@@ -1,5 +1,5 @@
-JustInTime Version 0.0.6
+JustInTime Version 0.0.7
 
-merged with withmembers brach
-withmembers branch deleted
-new branch added
+now implement a basic User class
+Members class WIP
+Test.java and ballin.java are not used
