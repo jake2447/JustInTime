@@ -7,6 +7,10 @@ public class User {
 		
 	}
 	
+	public User(User oldUser){
+		username = oldUser.getName();
+	}
+	
 	public String getName(){
 		return username;
 	}
