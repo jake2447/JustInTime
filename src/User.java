@@ -11,6 +11,10 @@ public class User {
 		username = oldUser.getName();
 	}
 	
+	public User(String name, String password){
+		
+	}
+	
 	public String getName(){
 		return username;
 	}
