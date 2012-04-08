@@ -9,6 +9,7 @@ public class Members {
 	//default constructor
 	public Members(){
 		userList = new ArrayList<User>();
+		int x = 5;
 	}
 	
 	//constructor with a list of users passed as a parameters
