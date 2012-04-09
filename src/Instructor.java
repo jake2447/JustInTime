@@ -6,7 +6,6 @@ public class Instructor extends User{
     public Instructor(){
     	studentList = new ArrayList();
     	instrAssignmentList = new ArrayList();
-    	int x =5;s
     }
 
     public void createAssn(int x, Assignment asst){
