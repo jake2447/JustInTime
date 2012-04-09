@@ -10,6 +10,7 @@ public class User {
 	
 	public User(User oldUser){
 		username = oldUser.getName();
+		password = oldUser.getPassword();
 	}
 	
 	public User(String name, String passcode){
