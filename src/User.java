@@ -2,6 +2,7 @@
 public class User {
 	
 	private String username;
+	private String password;
 	
 	public User(){
 		
@@ -11,12 +12,17 @@ public class User {
 		username = oldUser.getName();
 	}
 	
-	public User(String name, String password){
-		
+	public User(String name, String passcode){
+		username = name;
+		password = passcode;
 	}
 	
 	public String getName(){
 		return username;
 	}
+	
+	public String getPassword(){
+        return password;
+    }
 
 }
