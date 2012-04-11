@@ -18,7 +18,6 @@ public class Question {
 	// 										constructors
 	//--------------------------------------------------------------------------------------------
 	
-	//pointless comment
 	public Question(){
 		questionBody = "";
 		correctAnswer = 1;
