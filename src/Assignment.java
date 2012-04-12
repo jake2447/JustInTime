@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 
 
-public class Assignment 
+public class Assignment implements Serializable
 {
 	
 	public ArrayList<Question> questionList;
