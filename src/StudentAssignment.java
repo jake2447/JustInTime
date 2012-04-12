@@ -22,7 +22,7 @@ public class StudentAssignment extends Assignment
 		int correct;
 		int total;
 		
-		for(int count = 0; count > questionList.length; count++)
+		for(int count = 0; count > questionList.size(); count++)
 		{
 			
 		}

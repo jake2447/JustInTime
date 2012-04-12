@@ -13,15 +13,15 @@ public class Instructor extends User{
     	instrAssignmentList.add(x, asst);
     }
 
-    public void addQuestion(int x, Question ques){
+    public void addQuestion(int x, Question ques, Assignment asst){
     	asst.questionList.add(x, ques);
     }
 
-    public void removeQuestion(int x){
+    public void removeQuestion(int x, Assignment asst){
     	asst.questionList.remove(x);
     }
 
-    public void editQuestion(int x, Question editedQues){
+    public void editQuestion(int x, Question editedQues, Assignment asst){
     	asst.questionList.set(x, editedQues);
     }
 
