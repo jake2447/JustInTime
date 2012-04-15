@@ -1,6 +1,7 @@
+import java.io.*;
 import java.util.*;
 
-public class Members {
+public class Members implements Serializable{
 	
 	//will store a list of all users on the system
 	//typed as user but elements will be either students or instructors
@@ -9,7 +10,6 @@ public class Members {
 	//default constructor
 	public Members(){
 		userList = new ArrayList<User>();
-		int x = 5;
 	}
 	
 	//constructor with a list of users passed as a parameters
@@ -27,5 +27,20 @@ public class Members {
 			}
 		}
 		return null;
+	}
+	
+	public User addUser(String username, String password, int type){
+		for (type==0){
+			userList.add(new Student(username,password));
+		}
+		else
+			userList.add(new Instructor(username, password));
+		}
+	}
+	
+	public void dataUpdate(){
+		FileOutputStream fout = new FileOutputStream("members.data");
+		ObjectOutputStream oout = new ObjectOutputStream(fout);
+		oout.writeObject(this);
 	}
 }

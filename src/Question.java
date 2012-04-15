@@ -2,9 +2,10 @@
 //	Date Modified:		4/1/12
 //	Filename:			Question.java
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Question {
+public class Question implements Serializable{
 	
 	//this array will hold strings which correspond to the texts of each answer
 	private ArrayList<String> answerTexts = new ArrayList<String>();
