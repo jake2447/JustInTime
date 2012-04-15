@@ -30,7 +30,7 @@ public class Instructor extends User{
 
     }
 
-    public void assign(){
+    public void assign(Assignment asst){
         
     }
 }

@@ -15,6 +15,10 @@ public class StudentAssignment extends Assignment
 		grade = 0.0;
 	}
 	
+	public StudentAssignment(Assignment asst){
+		super(asst);
+	}
+	
 	public double getGrade()
 	{
 		calculateGrade();

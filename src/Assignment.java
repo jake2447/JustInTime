@@ -21,6 +21,12 @@ public class Assignment implements Serializable
 		assignmentNumber = number;
 	}
 	
+	public Assignment(Assignment asst){
+		questionList = asst.questionList;
+		assignmentNumber = asst.getAssignmentNumber();
+		dueDate = asst.getDueDate();
+	}
+	
 	public void setAssignmentNumber(int assignmentNumber)
 	{
 		this.assignmentNumber = assignmentNumber;
