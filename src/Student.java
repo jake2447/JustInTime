@@ -18,7 +18,6 @@ public class Student extends User{
     
     public double checkAssnGrade(int x){
     	StudentAssignment temp;
-    	assignmentList.get(x);
     	temp = tempAsst(x);
     	return temp.getGrade();
     }
