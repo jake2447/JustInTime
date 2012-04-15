@@ -21,6 +21,11 @@ public class Student extends User{
     	temp = tempAsst(x);
     	return temp.getGrade();
     }
+    
+    public void addAssignment(Assignment asst){
+    	StudentAssignment newAsst = new StudentAssignment(asst);
+    	assignmentList.add(newAsst);
+    }
 
     public void takeAssignment(){
     	/**if(//assignment doesn't exist){

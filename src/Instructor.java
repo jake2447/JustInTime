@@ -31,6 +31,8 @@ public class Instructor extends User{
     }
 
     public void assign(Assignment asst){
-        
+        for(int count=0; count < studentList.size(); count++){
+        	studentList.get(count).addAssignment(asst);
+        }
     }
 }
