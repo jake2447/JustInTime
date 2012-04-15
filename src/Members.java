@@ -29,6 +29,15 @@ public class Members implements Serializable{
 		return null;
 	}
 	
+	public User addUser(String username, String password, int type){
+		for (type==0){
+			userList.add(new Student(username,password));
+		}
+		else
+			userList.add(new Instructor(username, password));
+		}
+	}
+	
 	public void dataUpdate(){
 		FileOutputStream fout = new FileOutputStream("members.data");
 		ObjectOutputStream oout = new ObjectOutputStream(fout);
