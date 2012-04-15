@@ -4,7 +4,8 @@ public class Instructor extends User{
     private ArrayList<Student> studentList;
     private ArrayList<Assignment> instrAssignmentList;
 
-    public Instructor(){
+    public Instructor(String username, String password){
+    	super(username, password);
     	studentList = new ArrayList();
     	instrAssignmentList = new ArrayList();
     }
