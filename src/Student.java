@@ -4,8 +4,8 @@ import java.util.*;
 public class Student extends User{
     private ArrayList<StudentAssignment> assignmentList = new ArrayList<StudentAssignment>();
 
-    public Student(){
-    	
+    public Student(String username, String password){
+    	super(username,password);
     }
     
     public Student(ArrayList<StudentAssignment> stAsstList){
