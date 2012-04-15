@@ -44,12 +44,13 @@ public class Assignment implements Serializable
 	
 	public static Calendar getDueDate() 
 	{
+		parseDate(dueDate);
 		return dueDate;
 	}
 	
-	public static void parseDate(dueDate) 
+	public static void parseDate(Date date) 
 	{
-	      String ds = dueDate;
+	      String ds = date;
 	      DateFormat df = DateFormat.getDateInstance();
 	      try 
 	      {
