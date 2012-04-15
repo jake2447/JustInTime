@@ -2,15 +2,18 @@
 //	Date Modified:		4/10/12
 //	Filename:			Assignment.java
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 
 
-public class Assignment 
+public class Assignment implements Serializable
 {
 	
 	public ArrayList<Question> questionList;
 	private int assignmentNumber;
-	private static Calendar dueDate;
+	private Calendar dueDate;
 	
 	public Assignment(Calendar date, int number)
 	{

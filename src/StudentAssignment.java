@@ -7,11 +7,12 @@ import java.util.*;
 public class StudentAssignment extends Assignment
 {
 
-	private int grade;
+	private double grade;
 	
 	public StudentAssignment(Calendar date, int number) 
 	{
 		super(date, number);
+		grade = 0.0;
 	}
 	
 	public double getGrade()
@@ -24,7 +25,7 @@ public class StudentAssignment extends Assignment
 		int correct;
 		int total;
 		
-		for(int count = 0; count > questionList.length(); count++)
+	for(int count = 0; count > questionList.size(); count++)
 		{
 			
 		}

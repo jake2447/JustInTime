@@ -12,8 +12,14 @@ public class Student extends User{
     	assignmentList = stAsstList;
     }
 
-    public void checkAssnGrade(int x){
-    	assignmentList.get(x);
+    public StudentAssignment tempAsst(int x){
+    	return (StudentAssignment) assignmentList.get(x);
+    }
+    
+    public double checkAssnGrade(int x){
+    	StudentAssignment temp;
+    	temp = tempAsst(x);
+    	return temp.getGrade();
     }
 
     public void takeAssignment(){
