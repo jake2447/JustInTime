@@ -1,4 +1,4 @@
-import java.io.Serializable;
+import java.io.*;
 import java.util.*;
 
 public class Members implements Serializable{
@@ -27,5 +27,11 @@ public class Members implements Serializable{
 			}
 		}
 		return null;
+	}
+	
+	public void dataUpdate(){
+		FileOutputStream fout = new FileOutputStream("members.data");
+		ObjectOutputStream oout = new ObjectOutputStream(fout);
+		oout.writeObject(this);
 	}
 }
