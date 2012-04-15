@@ -22,8 +22,9 @@ public class Student extends User{
     	return temp.getGrade();
     }
     
-    public void addAssignment(StudentAssignment asst){
-    	assignmentList.add(asst);
+    public void addAssignment(Assignment asst){
+    	StudentAssignment newAsst = new StudentAssignment(asst);
+    	assignmentList.add(newAsst);
     }
 
     public void takeAssignment(){
