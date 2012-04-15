@@ -1,6 +1,8 @@
-import java.util.Calendar;
-import java.util.Date;
+//	Author(s):			Richard Ceus
+//	Date Modified:		4/10/12
+//	Filename:			StudentAssignment.java
 
+import java.util.*;
 
 public class StudentAssignment extends Assignment
 {
@@ -22,7 +24,7 @@ public class StudentAssignment extends Assignment
 		int correct;
 		int total;
 		
-		for(int count = 0; count > questionList.length; count++)
+		for(int count = 0; count > questionList.length(); count++)
 		{
 			
 		}

@@ -1,6 +1,8 @@
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.text.SimpleDateFormat;
+//	Author(s):			Richard Ceus
+//	Date Modified:		4/10/12
+//	Filename:			Assignment.java
+
+import java.util.*;
 
 
 public class Assignment 
