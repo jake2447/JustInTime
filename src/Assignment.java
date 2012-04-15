@@ -40,5 +40,19 @@ public class Assignment implements Serializable
 	{
 		return dueDate;
 	}
+	
+	public static void parseDate(dueDate) 
+	{
+	      String ds = dueDate;
+	      DateFormat df = DateFormat.getDateInstance();
+	      try 
+	      {
+	         Date d = df.parse(ds);
+	      }
+	      catch(ParseException e) 
+	      {
+	         System.out.println("Unable to parse " + ds);
+	      }
+	 }
 
 }

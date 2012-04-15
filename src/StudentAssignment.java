@@ -17,6 +17,7 @@ public class StudentAssignment extends Assignment
 	
 	public double getGrade()
 	{
+		calculateGrade();
 		return grade;
 	}
 	
@@ -25,10 +26,17 @@ public class StudentAssignment extends Assignment
 		int correct;
 		int total;
 		
-	for(int count = 0; count > questionList.size(); count++)
+		for(int count = 0; count > questionList.size(); count++)
 		{
+			if (questionList.get(count).compareAnswers())
+			{
+				correct++;
+			}
+			total++;
 			
 		}
+		
+		grade = correct/total;
 	}
 	
 }
