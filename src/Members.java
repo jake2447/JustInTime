@@ -39,8 +39,17 @@ public class Members implements Serializable{
 	}
 	
 	public void dataUpdate(){
-		FileOutputStream fout = new FileOutputStream("members.data");
-		ObjectOutputStream oout = new ObjectOutputStream(fout);
-		oout.writeObject(this);
+		try {
+			FileOutputStream fout = new FileOutputStream("members.data");
+			ObjectOutputStream oout = new ObjectOutputStream(fout);
+			oout.writeObject(this);			
+		}
+		catch (FileNotFoundException e){
+			
+		}
+		catch (IOException e){
+			
+		}
+		
 	}
 }
