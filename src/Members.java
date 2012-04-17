@@ -29,11 +29,11 @@ public class Members implements Serializable{
 		return null;
 	}
 	
-	public User addUser(String username, String password, int type){
-		for (type==0){
+	public void addUser(String username, String password, int accountType){
+		if (accountType==0){
 			userList.add(new Student(username,password));
 		}
-		else
+		else {
 			userList.add(new Instructor(username, password));
 		}
 	}
