@@ -27,8 +27,8 @@ public class StudentAssignment extends Assignment
 	
 	public void calculateGrade()
 	{
-		int correct;
-		int total;
+		int correct = 0;
+		int total = 0;
 		
 		for(int count = 0; count > questionList.size(); count++)
 		{
