@@ -26,8 +26,14 @@ public class Instructor extends User{
     	asst.questionList.set(x, editedQues);
     }
 
-    public void viewGrades(){
-
+    public double getAssignmentAverage(Assignment assn){
+    	int aNum = assn.getAssignmentNumber();
+    	double avg = 0;
+    	for (int i = 0; i < studentList.size(); i++){
+    		StudentAssignment temp = studentList.get(i).findAssignemnt(aNum);
+    		avg += temp.getGrade();
+    	}
+    	return avg / studentList.size();
     }
 
     public void assign(Assignment asst){

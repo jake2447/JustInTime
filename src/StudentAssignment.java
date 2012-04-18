@@ -9,7 +9,7 @@ public class StudentAssignment extends Assignment
 
 	private double grade;
 	
-	public StudentAssignment(Calendar date, int number) 
+	public StudentAssignment(String date, int number) 
 	{
 		super(date, number);
 		grade = 0.0;

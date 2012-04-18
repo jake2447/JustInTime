@@ -2,7 +2,7 @@
 import java.util.*;
 
 public class Student extends User{
-    private ArrayList<StudentAssignment> assignmentList = new ArrayList<StudentAssignment>();
+    public ArrayList<StudentAssignment> assignmentList = new ArrayList<StudentAssignment>();
 
     public Student(String username, String password){
     	super(username,password);
@@ -25,6 +25,15 @@ public class Student extends User{
     public void addAssignment(Assignment asst){
     	StudentAssignment newAsst = new StudentAssignment(asst);
     	assignmentList.add(newAsst);
+    }
+    
+    public StudentAssignment findAssignemnt(int assignmentNumber)
+    {
+    	for (int i = 0; i < assignmentList.size(); i++){
+    		if (assignmentList.get(i).getAssignmentNumber()==assignmentNumber)
+    			return assignmentList.get(i);
+    	}
+    	return null;
     }
 
     public void takeAssignment(){
