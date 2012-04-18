@@ -16,9 +16,9 @@ public class Assignment implements Serializable
 	private int assignmentNumber;
 	private Calendar dueDate;
 	
-	public Assignment(Calendar date, int number)
+	public Assignment(String GUIdate, int number)
 	{
-		dueDate = date;
+		dueDate = parseDateFromGUI(GUIdate);
 		assignmentNumber = number;
 	}
 	
@@ -65,9 +65,10 @@ public class Assignment implements Serializable
 	}
 	
 	
-	public static void parseDateFromGUI(String GUIdate) 
+	public Calendar parseDateFromGUI(String GUIdate) 
 	{
-
+		Calendar dDate = new GregorianCalendar();
+		return dDate;
 	}
 
 }
