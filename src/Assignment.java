@@ -2,9 +2,10 @@
 //	Date Modified:		4/10/12
 //	Filename:			Assignment.java
 
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.*;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 
@@ -15,14 +16,15 @@ public class Assignment implements Serializable
 	private int assignmentNumber;
 	private Calendar dueDate;
 	
-	public Assignment(Calendar date, int number)
+	public Assignment(String GUIdate, int number)
 	{
-		dueDate = date;
+		dueDate = parseDateFromGUI(GUIdate);
 		assignmentNumber = number;
 	}
 	
-	public Assignment(Assignment asst){
-		questionList = asst.questionList;
+	public Assignment(Assignment asst)
+	{
+		questionList = asst.getQuestionList();
 		assignmentNumber = asst.getAssignmentNumber();
 		dueDate = asst.getDueDate();
 	}
@@ -37,29 +39,40 @@ public class Assignment implements Serializable
 		return assignmentNumber;
 	}
 	
+	public ArrayList<Question> getQuestionList()
+	{
+		ArrayList<Question> qList = new ArrayList<Question>();
+		for (int i = 0; i < questionList.size(); i++)
+		{
+			qList.add(questionList.get(i));
+		}
+		return qList;
+	}
+	
+	public void setQuestionList(ArrayList<Question> qlist){
+		questionList = qlist;
+	}
+	
 	public void setDueDate(Calendar dueDate) 
 	{
 		this.dueDate = dueDate;
 	}
 	
-	public static Calendar getDueDate() 
+	public Calendar getDueDate() 
 	{
-		parseDate(dueDate);
 		return dueDate;
 	}
 	
-	public static void parseDate(Date date) 
+	public String getDueDateAsString()
 	{
-	      String ds = date;
-	      DateFormat df = DateFormat.getDateInstance();
-	      try 
-	      {
-	         Date d = df.parse(ds);
-	      }
-	      catch(ParseException e) 
-	      {
-	         System.out.println("Unable to parse " + ds);
-	      }
-	 }
+		return dueDate.getTime().toString();
+	}
+	
+	
+	public Calendar parseDateFromGUI(String GUIdate) 
+	{
+		Calendar dDate = new GregorianCalendar();
+		return dDate;
+	}
 
 }

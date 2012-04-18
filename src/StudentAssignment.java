@@ -7,9 +7,10 @@ import java.util.*;
 public class StudentAssignment extends Assignment
 {
 
-	private double grade;
+	private double score, grade;
+	private int pointsPerQuestion = 1;  //multiplier for the number of points rewarded for a correct answer
 	
-	public StudentAssignment(Calendar date, int number) 
+	public StudentAssignment(String date, int number) 
 	{
 		super(date, number);
 		grade = 0.0;
@@ -19,28 +20,34 @@ public class StudentAssignment extends Assignment
 		super(asst);
 	}
 	
-	public double getGrade()
+	//returns the score of the assignment after calculating it
+	public double getScore()
 	{
-		calculateGrade();
+		calculateScore();
+		return score;
+	}
+	
+	//returns the grade of the assignment out of 100 percent
+	public double getGrade(){
+		if (questionList.size()>0)
+			grade = (getScore()/questionList.size())*100.0;
+		else
+			grade = 0.0;
 		return grade;
 	}
 	
-	public void calculateGrade()
+	//calculates the score of the assignment as correct answers * pointsPerQuestion
+	public void calculateScore()
 	{
 		int correct = 0;
-		int total = 0;
-		
-		for(int count = 0; count > questionList.size(); count++)
+		for(int count = 0; count < questionList.size(); count++)
 		{
 			if (questionList.get(count).compareAnswers())
 			{
-				correct++;
+				correct++;				
 			}
-			total++;
-			
-		}
-		
-		grade = correct/total;
+		}		
+		score = correct * pointsPerQuestion;
 	}
 	
 }

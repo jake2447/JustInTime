@@ -26,6 +26,15 @@ public class Student extends User{
     	StudentAssignment newAsst = new StudentAssignment(asst);
     	assignmentList.add(newAsst);
     }
+    
+    public StudentAssignment findAssignemnt(int assignmentNumber)
+    {
+    	for (int i = 0; i < assignmentList.size(); i++){
+    		if (assignmentList.get(i).getAssignmentNumber()==assignmentNumber)
+    			return assignmentList.get(i);
+    	}
+    	return null;
+    }
 
     public void takeAssignment(){
     	/**if(//assignment doesn't exist){
