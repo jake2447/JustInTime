@@ -44,9 +44,13 @@ public class Assignment implements Serializable
 		ArrayList<Question> qList = new ArrayList<Question>();
 		for (int i = 0; i < questionList.size(); i++)
 		{
-			qList.set(i,questionList.get(i));
+			qList.add(questionList.get(i));
 		}
 		return qList;
+	}
+	
+	public void setQuestionList(ArrayList<Question> qlist){
+		questionList = qlist;
 	}
 	
 	public void setDueDate(Calendar dueDate) 
