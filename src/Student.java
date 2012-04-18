@@ -2,7 +2,7 @@
 import java.util.*;
 
 public class Student extends User{
-    public ArrayList<StudentAssignment> assignmentList = new ArrayList<StudentAssignment>();
+    private ArrayList<StudentAssignment> assignmentList = new ArrayList<StudentAssignment>();
 
     public Student(String username, String password){
     	super(username,password);
