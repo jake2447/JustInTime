@@ -8,6 +8,7 @@ public class StudentAssignment extends Assignment
 {
 
 	private double score, grade;
+	private int pointsPerQuestion = 1;  //multiplier for the number of points rewarded for a correct answer
 	
 	public StudentAssignment(String date, int number) 
 	{
@@ -19,19 +20,23 @@ public class StudentAssignment extends Assignment
 		super(asst);
 	}
 	
+	//returns the score of the assignment after calculating it
 	public double getScore()
 	{
 		calculateScore();
 		return score;
 	}
 	
+	//returns the grade of the assignment out of 100 percent
 	public double getGrade(){
 		if (questionList.size()>0)
-			return (getScore()/questionList.size())*100.0;
+			grade = (getScore()/questionList.size())*100.0;
 		else
-			return 0.0;
+			grade = 0.0;
+		return grade;
 	}
 	
+	//calculates the score of the assignment as correct answers * pointsPerQuestion
 	public void calculateScore()
 	{
 		int correct = 0;
@@ -42,7 +47,7 @@ public class StudentAssignment extends Assignment
 				correct++;				
 			}
 		}		
-		score = correct;
+		score = correct * pointsPerQuestion;
 	}
 	
 }
