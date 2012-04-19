@@ -27,5 +27,9 @@ public class User implements Serializable{
 	public String getPassword(){
         return password;
     }
+	
+	public String toString(){
+		return "username " + username + " password " + password;
+	}
 
 }
