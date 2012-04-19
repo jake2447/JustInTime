@@ -13,14 +13,14 @@ public class assignPanel extends JPanel
     private addAssignPopUp aAssign; 
     private editAssignPopup eAssign;
     
-    public assignPanel()
+    public assignPanel(Instructor loggedInInstr)
     {
         aAssign = new addAssignPopUp();
         
         eAssign = new editAssignPopup();
         
         assignList = new Vector<Assignment>();
-        assignList.add(new Assignment());
+        //assignList.add(new Assignment());
         
         
         
@@ -58,10 +58,11 @@ public class assignPanel extends JPanel
            aAssign.setVisible(true);
            if(aAssign.submitClicked())
            {
+        	   int aNum = 3; // for now
                try{
                String x = aAssign.getName();
-               Integer y = new Integer(aAssign.getDate());
-               assignList.add(new Assignment(x,y));
+               String y = (aAssign.getDate());
+               assignList.add(new Assignment(x,y,aNum));
              //  assigns.setListData(assignList);
                
             }
