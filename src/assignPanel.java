@@ -21,8 +21,8 @@ public class assignPanel extends JPanel
         
         assignList = new Vector<Assignment>();
         
-        assignList.add(new Assignment("one", 2));
-        assignList.add(new Assignment("two", 2));
+        assignList.add(new Assignment("one", "1/1/11", 1));
+        assignList.add(new Assignment("two", "2/2/22", 2));
         
         add = new JButton("Add Assignment");
         add.addActionListener(new addListener());
@@ -57,8 +57,8 @@ public class assignPanel extends JPanel
            if(aAssign.submitClicked())
            { 
                String x = aAssign.getName();
-               Integer y = new Integer(aAssign.getDate());
-               assignList.add(new Assignment(x,y));
+               String y = aAssign.getDate();
+               assignList.add(new Assignment(x,y,4));
             }
             assigns.updateUI();
           // assignList.add(aAssign.getName());

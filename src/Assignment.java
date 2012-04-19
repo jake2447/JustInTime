@@ -14,10 +14,12 @@ public class Assignment implements Serializable
 	
 	public ArrayList<Question> questionList;
 	private int assignmentNumber;
+	private String assignmentName;
 	private Calendar dueDate;
 	
-	public Assignment(String GUIdate, int number)
+	public Assignment(String aName, String GUIdate, int number)
 	{
+		assignmentName = aName;
 		dueDate = parseDateFromGUI(GUIdate);
 		assignmentNumber = number;
 	}
@@ -73,6 +75,10 @@ public class Assignment implements Serializable
 	{
 		Calendar dDate = new GregorianCalendar();
 		return dDate;
+	}
+	
+	public String toString (){
+		return assignmentName;
 	}
 
 }
