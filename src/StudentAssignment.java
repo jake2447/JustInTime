@@ -10,9 +10,9 @@ public class StudentAssignment extends Assignment
 	private double score, grade;
 	private int pointsPerQuestion = 1;  //multiplier for the number of points rewarded for a correct answer
 	
-	public StudentAssignment(String date, int number) 
+	public StudentAssignment(String name, String date, int number) 
 	{
-		super(date, number);
+		super(name, date, number);
 		grade = 0.0;
 	}
 	
