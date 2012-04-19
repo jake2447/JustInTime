@@ -11,6 +11,7 @@ public class addAssignPopUp extends JFrame
     private JButton submit, cancel;
     private JPanel box, inside;
     private String aName, dDate;
+    private boolean clicked;
     
     public addAssignPopUp()
     {
@@ -56,12 +57,18 @@ public String getDate()
     return dDate;
 }
 
+public boolean submitClicked()
+{
+    return clicked;
+}
+
     
 private class SubmitListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
             aName = name.getText();
+            clicked = true;
             setVisible(false);
         }
     }

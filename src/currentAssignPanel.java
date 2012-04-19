@@ -8,13 +8,13 @@ public class currentAssignPanel extends JPanel
 {
     private JList curr;
     private JButton select;
-    private Vector<String> cAssign;
+    private Vector<Assignment> cAssign;
     
     public currentAssignPanel()
     {
-        cAssign = new Vector<String>();
-        cAssign.add("a1");
-        cAssign.add("a2");
+        cAssign = new Vector<Assignment>();
+//         cAssign.add("a1");
+//         cAssign.add("a2");
         
         setLayout(new GridLayout(2,1));
         
