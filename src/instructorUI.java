@@ -11,7 +11,13 @@ public class instructorUI extends JApplet
    Instructor loggedInInstr;
    
 
-   //The method init initializes the Applet with a Pane with two tabs
+   public instructorUI(Instructor instructor) {
+	// TODO Auto-generated constructor stub
+	   init(instructor);
+   }
+
+
+//The method init initializes the Applet with a Pane with two tabs
    public void init(Instructor loggedInInstr)
     {
         assign = new assignPanel(loggedInInstr);

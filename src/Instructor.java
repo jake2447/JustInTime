@@ -8,6 +8,7 @@ public class Instructor extends User{
     	super(username, password);
     	studentList = new Vector();
     	instrAssignmentList = new Vector();
+    	TYPE = 1;
     }
 
     public void createAssn(int x, Assignment asst){

@@ -6,10 +6,12 @@ public class Student extends User{
 
     public Student(String username, String password){
     	super(username,password);
+    	TYPE = 0;
     }
     
     public Student(Vector<StudentAssignment> stAsstList){
     	assignmentList = stAsstList;
+    	TYPE = 0;
     }
 
     public StudentAssignment tempAsst(int x){

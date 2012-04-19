@@ -52,4 +52,13 @@ public class Members implements Serializable{
 		}
 		
 	}
+	
+	public boolean checkUser(String username){
+		for (int i = 0; i < userList.size(); i++){
+			if (userList.get(i).getName()==username){
+				return true;
+			}
+		}
+		return false;
+	}
 }

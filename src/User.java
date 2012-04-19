@@ -5,6 +5,7 @@ public class User implements Serializable{
 	
 	private String username;
 	private String password;
+	protected int TYPE;
 	
 	public User(){
 		
@@ -27,5 +28,16 @@ public class User implements Serializable{
 	public String getPassword(){
         return password;
     }
+	
+	public boolean checkPassword(String pass){
+		if (pass == password)
+			return true;
+		else
+			return false;
+	}
+	
+	public int getType(){
+		return TYPE;
+	}
 
 }

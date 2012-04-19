@@ -9,11 +9,14 @@ public class login extends JApplet {
 	private JLabel username, password;
 	private JTextField name, passw;
 	private boolean correct;
+	Members memList;
 
 	// private ArrayList<user> classList;
 
-	public login() {
+	public login(Members mem) {
 		correct = false;
+		
+		memList = mem;
 
 		setPreferredSize(new Dimension(300, 200));
 
@@ -49,7 +52,16 @@ public class login extends JApplet {
 
 	private class LoginListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			
+			if (memList.checkUser(name.getText())){
+				if(memList.getUser(name.getText()).checkPassword(passw.getText())){
+					if (memList.getUser(name.getText()).getType()==0){
+						
+					}
+					else {
+						instructorUI iUI = new instructorUI((Instructor)(memList.getUser(name.getText())));
+					}
+				}
+			}
 		}
 	}
 }
