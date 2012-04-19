@@ -12,21 +12,17 @@ public class assignPanel extends JPanel
     private Vector<Assignment> assignList;
     private addAssignPopUp aAssign; 
     private editAssignPopup eAssign;
-    Instructor loggedInInstr;
     
-    public assignPanel(Instructor lInst)
+    public assignPanel()
     {
-    	
-    	loggedInInstr = lInst;
-    	
         aAssign = new addAssignPopUp();
         
         eAssign = new editAssignPopup();
         
-        assignList = loggedInInstr.getAList();
+        assignList = new Vector<Assignment>();
+        assignList.add(new Assignment("one", 2));
         
-        assignList.add(new Assignment("one", "1/1/11", 1));
-        assignList.add(new Assignment("two", "2/2/22", 2));
+        
         
         add = new JButton("Add Assignment");
         add.addActionListener(new addListener());
@@ -36,8 +32,10 @@ public class assignPanel extends JPanel
         
         delete = new JButton("Delete Assignment");
         
-        assigns = new JList(assignList);
-        assigns.addListSelectionListener(new updateListener()) ;
+        assigns = new JList();
+        assigns.setListData(assignList);
+        
+     //   assigns.addActionListener(new updateListener()) ;
         
         buttons = new JPanel();
         buttons.setLayout(new GridLayout(1,3));
@@ -59,12 +57,21 @@ public class assignPanel extends JPanel
        {
            aAssign.setVisible(true);
            if(aAssign.submitClicked())
-           { 
+           {
+               try{
                String x = aAssign.getName();
-               String y = aAssign.getDate();
-               assignList.add(new Assignment(x,y,4));
+               Integer y = new Integer(aAssign.getDate());
+               assignList.add(new Assignment(x,y));
+             //  assigns.setListData(assignList);
+               
             }
-            assigns.updateUI();
+            finally
+            {
+             assigns.setListData(assignList);
+        }
+            }
+//             assigns.setListData(assignList);
+//             assigns.updateUI();
           // assignList.add(aAssign.getName());
            
         }
@@ -78,12 +85,12 @@ public class assignPanel extends JPanel
         }
     }
     
-    private class updateListener implements ListSelectionListener
-    {
-        public void valueChanged(ListSelectionEvent e) 
-        {
-            
-        }
-    }
+//     private class updateListener implements ListDataListener
+//     {
+//         public void contentsChanged(ListDataEvent e) 
+//         {
+//             
+//         }
+//     }
     
 }
