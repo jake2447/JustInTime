@@ -8,7 +8,7 @@ import java.util.*;
 public class Question implements Serializable{
 	
 	//this array will hold strings which correspond to the texts of each answer
-	private ArrayList<String> answerTexts = new ArrayList<String>();
+	private Vector<String> answerTexts = new Vector<String>();
 	private String questionBody;
 	
 	//these ints correspond to the correct answer and the user's selected answer
@@ -25,7 +25,7 @@ public class Question implements Serializable{
 		selectedAnswer = -1;
 	}
 	
-	public Question(String newBody, ArrayList<String> newAnswers, int newCorrectAnswer){
+	public Question(String newBody, Vector<String> newAnswers, int newCorrectAnswer){
 		for (int i = 0; i < newAnswers.size(); i++){
 			if (i < answerTexts.size()){
 				answerTexts.set(i, newAnswers.get(i));
@@ -47,8 +47,8 @@ public class Question implements Serializable{
 	
 	
 	//this method returns a new list that is a copy of the current answerTexts array
-	public ArrayList<String> getAnswerText(){
-		ArrayList<String> listCopy = new ArrayList<String>();
+	public Vector<String> getAnswerText(){
+		Vector<String> listCopy = new Vector<String>();
 		for (int i = 0; i < answerTexts.size(); i++){
 			listCopy.set(i, answerTexts.get(i));
 		}
@@ -73,8 +73,8 @@ public class Question implements Serializable{
 	//--------------------------------------------------------------------------------------------
 	
 	
-	//this method will take an ArrayList<String> as a parameter and set the answerTexts strings appropriately
-	public void setAnswerText(ArrayList<String> newAnswerTexts){
+	//this method will take an Vector<String> as a parameter and set the answerTexts strings appropriately
+	public void setAnswerText(Vector<String> newAnswerTexts){
 		for (int i = 0; i < newAnswerTexts.size(); i++){
 			answerTexts.set(i, newAnswerTexts.get(i));
 		}

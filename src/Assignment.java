@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 public class Assignment implements Serializable
 {
 	
-	public ArrayList<Question> questionList;
+	public Vector<Question> questionList;
 	private int assignmentNumber;
 	private String assignmentName;
 	private Calendar dueDate;
@@ -41,9 +41,9 @@ public class Assignment implements Serializable
 		return assignmentNumber;
 	}
 	
-	public ArrayList<Question> getQuestionList()
+	public Vector<Question> getQuestionList()
 	{
-		ArrayList<Question> qList = new ArrayList<Question>();
+		Vector<Question> qList = new Vector<Question>();
 		for (int i = 0; i < questionList.size(); i++)
 		{
 			qList.add(questionList.get(i));
@@ -51,7 +51,7 @@ public class Assignment implements Serializable
 		return qList;
 	}
 	
-	public void setQuestionList(ArrayList<Question> qlist){
+	public void setQuestionList(Vector<Question> qlist){
 		questionList = qlist;
 	}
 	

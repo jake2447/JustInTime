@@ -5,16 +5,16 @@ public class Members implements Serializable{
 	
 	//will store a list of all users on the system
 	//typed as user but elements will be either students or instructors
-	private ArrayList<User> userList;
+	private Vector<User> userList;
 	
 	//default constructor
 	public Members(){
-		userList = new ArrayList<User>();
+		userList = new Vector<User>();
 	}
 	
 	//constructor with a list of users passed as a parameters
-	public Members(ArrayList<User> existingUserList){
-		userList = new ArrayList<User>(existingUserList);
+	public Members(Vector<User> existingUserList){
+		userList = new Vector<User>(existingUserList);
 	}
 	
 	//method that searches the list of users

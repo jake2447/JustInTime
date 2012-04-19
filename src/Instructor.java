@@ -1,13 +1,13 @@
 import java.util.*;
 
 public class Instructor extends User{
-    private ArrayList<Student> studentList;
-    private ArrayList<Assignment> instrAssignmentList;
+    private Vector<Student> studentList;
+    private Vector<Assignment> instrAssignmentList;
 
     public Instructor(String username, String password){
     	super(username, password);
-    	studentList = new ArrayList();
-    	instrAssignmentList = new ArrayList();
+    	studentList = new Vector();
+    	instrAssignmentList = new Vector();
     }
 
     public void createAssn(int x, Assignment asst){
@@ -26,7 +26,7 @@ public class Instructor extends User{
     	asst.questionList.set(x, editedQues);
     }
     
-    public ArrayList<Assignment> getAList(){
+    public Vector<Assignment> getAList(){
     	return instrAssignmentList;
     }
 

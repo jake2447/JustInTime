@@ -2,13 +2,13 @@
 import java.util.*;
 
 public class Student extends User{
-    private ArrayList<StudentAssignment> assignmentList = new ArrayList<StudentAssignment>();
+    private Vector<StudentAssignment> assignmentList = new Vector<StudentAssignment>();
 
     public Student(String username, String password){
     	super(username,password);
     }
     
-    public Student(ArrayList<StudentAssignment> stAsstList){
+    public Student(Vector<StudentAssignment> stAsstList){
     	assignmentList = stAsstList;
     }
 
