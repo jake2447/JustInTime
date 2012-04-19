@@ -38,18 +38,15 @@ public class Members implements Serializable{
 		}
 	}
 	
-	public void dataUpdate(){
-		try {
+	public void dataUpdate() throws FileNotFoundException, IOException{
+		
 			FileOutputStream fout = new FileOutputStream("members.data");
 			ObjectOutputStream oout = new ObjectOutputStream(fout);
 			oout.writeObject(this);			
-		}
-		catch (FileNotFoundException e){
 			
-		}
-		catch (IOException e){
-			
-		}
-		
+	}
+	
+	public String toString (){
+		return userList.toString();
 	}
 }
