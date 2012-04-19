@@ -1,2 +1,5 @@
 *.ctxt
 *.class
+*.html
+*.bluej
+*.lnk
