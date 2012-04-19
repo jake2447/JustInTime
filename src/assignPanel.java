@@ -20,7 +20,7 @@ public class assignPanel extends JPanel
         eAssign = new editAssignPopup();
         
         assignList = new Vector<Assignment>();
-        assignList.add(new Assignment("one", 2));
+        assignList.add(new Assignment());
         
         
         
