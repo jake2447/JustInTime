@@ -68,6 +68,7 @@ private class SubmitListener implements ActionListener
         public void actionPerformed(ActionEvent e)
         {
             aName = name.getText();
+            dDate = due.getText();
             clicked = true;
             setVisible(false);
         }

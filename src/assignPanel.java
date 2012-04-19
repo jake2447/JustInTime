@@ -9,17 +9,21 @@ public class assignPanel extends JPanel
     private JButton add, edit, delete;
     private JList assigns;
     private JPanel buttons;
-    private Vector<Assignment> assignList;
+    private ArrayList<Assignment> assignList;
     private addAssignPopUp aAssign; 
     private editAssignPopup eAssign;
+    Instructor loggedInInstr;
     
-    public assignPanel()
+    public assignPanel(Instructor lInst)
     {
+    	
+    	loggedInInstr = lInst;
+    	
         aAssign = new addAssignPopUp();
         
         eAssign = new editAssignPopup();
         
-        assignList = new Vector<Assignment>();
+        assignList = loggedInInstr.getAList();
         
         assignList.add(new Assignment("one", "1/1/11", 1));
         assignList.add(new Assignment("two", "2/2/22", 2));

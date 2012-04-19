@@ -8,12 +8,13 @@ public class instructorUI extends JApplet
    private assignPanel assign;
    private scoresPanel scores;
    private int APPLET_WIDTH = 1200, APPLET_HEIGHT = 600;
+   Instructor loggedInInstr;
    
 
    //The method init initializes the Applet with a Pane with two tabs
-   public void init()
+   public void init(Instructor loggedInInstr)
     {
-        assign = new assignPanel();
+        assign = new assignPanel(loggedInInstr);
         scores = new scoresPanel();
         
         tpane = new JTabbedPane();

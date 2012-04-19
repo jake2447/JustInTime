@@ -25,6 +25,10 @@ public class Instructor extends User{
     public void editQuestion(int x, Question editedQues, Assignment asst){
     	asst.questionList.set(x, editedQues);
     }
+    
+    public ArrayList<Assignment> getAList(){
+    	return instrAssignmentList;
+    }
 
     public double getAssignmentAverage(Assignment assn){
     	int aNum = assn.getAssignmentNumber();
