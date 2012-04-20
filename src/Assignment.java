@@ -80,4 +80,7 @@ public class Assignment implements Serializable
 		return assignmentName;
 	}
 
+	public void addQuestion(Question q){
+		questionList.add(q);
+	}
 }
