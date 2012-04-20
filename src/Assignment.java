@@ -43,12 +43,7 @@ public class Assignment implements Serializable
 	
 	public Vector<Question> getQuestionList()
 	{
-		Vector<Question> qList = new Vector<Question>();
-		for (int i = 0; i < questionList.size(); i++)
-		{
-			qList.add(questionList.get(i));
-		}
-		return qList;
+		return questionList;
 	}
 	
 	public void setQuestionList(Vector<Question> qlist){
@@ -78,6 +73,10 @@ public class Assignment implements Serializable
 	}
 	
 	public String toString (){
+		return assignmentName;
+	}
+	
+	public String getName (){
 		return assignmentName;
 	}
 
