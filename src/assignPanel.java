@@ -59,7 +59,7 @@ public class assignPanel extends JPanel
 					String x = aAssign.getName();
 					String y = (aAssign.getDate());
 					assignList.add(new Assignment(x, y, aNum));
-					// assigns.setListData(assignList);
+					assigns.setListData(assignList);
 
 				} finally {
 					assigns.setListData(assignList);
