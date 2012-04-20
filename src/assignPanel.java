@@ -19,10 +19,7 @@ public class assignPanel extends JPanel
         
         eAssign = new editAssignPopup();
         
-        assignList = new Vector<Assignment>();
-        //assignList.add(new Assignment());
-        
-        
+        assignList = new Vector<Assignment>();        
         
         add = new JButton("Add Assignment");
         add.addActionListener(new addListener());
@@ -51,32 +48,27 @@ public class assignPanel extends JPanel
         
     }
     
-   private class addListener implements ActionListener
-   {
-       public void actionPerformed(ActionEvent e)
-       {
-           aAssign.setVisible(true);
-           if(aAssign.submitClicked())
-           {
-        	   int aNum = 3; // for now
-               try{
-               String x = aAssign.getName();
-               String y = (aAssign.getDate());
-               assignList.add(new Assignment(x,y,aNum));
-             //  assigns.setListData(assignList);
-               
-            }
-            finally
-            {
-             assigns.setListData(assignList);
-        }
-            }
-//             assigns.setListData(assignList);
-//             assigns.updateUI();
-          // assignList.add(aAssign.getName());
-           
-        }
-    }
+	private class addListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			aAssign.setVisible(true);
+			if (aAssign.submitClicked()) {
+				int aNum = 3; // for now
+				try {
+					String x = aAssign.getName();
+					String y = (aAssign.getDate());
+					assignList.add(new Assignment(x, y, aNum));
+					// assigns.setListData(assignList);
+
+				} finally {
+					assigns.setListData(assignList);
+				}
+			}
+			// assigns.setListData(assignList);
+			// assigns.updateUI();
+			// assignList.add(aAssign.getName());
+
+		}
+	}
     
     private class editListener implements ActionListener
     {
