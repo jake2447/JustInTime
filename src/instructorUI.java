@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
-public class instructorUI extends JApplet
+public class instructorUI extends JFrame
  {
    private JTabbedPane tpane;
    private assignPanel assign;

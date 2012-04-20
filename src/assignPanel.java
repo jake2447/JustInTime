@@ -13,15 +13,15 @@ public class assignPanel extends JPanel
     private addAssignPopUp aAssign; 
     private editAssignPopup eAssign;
     
-    public assignPanel(Instructor lInst)
+
+   public assignPanel(Instructor loggedInInstr)
+
     {
         aAssign = new addAssignPopUp();
         
         eAssign = new editAssignPopup();
         
         assignList = loggedInInstr.getAList();
-        
-        
         
         add = new JButton("Add Assignment");
         add.addActionListener(new addListener());
@@ -50,31 +50,28 @@ public class assignPanel extends JPanel
         
     }
     
-   private class addListener implements ActionListener
-   {
-       public void actionPerformed(ActionEvent e)
-       {
-           aAssign.setVisible(true);
-           if(aAssign.submitClicked())
-           {
-               try{
-               String x = aAssign.getName();
-               String y = aAssign.getDate();
-               assignList.add(new Assignment(x,y,4));
-             //  assigns.setListData(assignList);
-               
-            }
-            finally
-            {
-             assigns.setListData(assignList);
-        }
-            }
-//             assigns.setListData(assignList);
-//             assigns.updateUI();
-          // assignList.add(aAssign.getName());
-           
-        }
-    }
+	private class addListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			aAssign.setVisible(true);
+			if (aAssign.submitClicked()) {
+				int aNum = 3; // for now
+				try {
+					String x = aAssign.getName();
+					String y = (aAssign.getDate());
+					assignList.add(new Assignment(x, y, aNum));
+					// assigns.setListData(assignList);
+
+				} finally {
+					assigns.setListData(assignList);
+				}
+			}
+			// assigns.setListData(assignList);
+			// assigns.updateUI();
+			// assignList.add(aAssign.getName());
+
+		}
+	}
+
     
     private class editListener implements ActionListener
     {
