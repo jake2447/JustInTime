@@ -20,8 +20,7 @@ public class assignPanel extends JPanel
     {
         aAssign = new addAssignPopUp();
         
-        eAssign = new editAssignPopup();
-        
+
         assignList = loggedInInstr.getAList();
         
         add = new JButton("Add Assignment");
@@ -63,6 +62,8 @@ public class assignPanel extends JPanel
 				{
 					assignList.add(new Assignment(x, y, aNum));
 					assigns.setListData(assignList);
+					System.out.println("should refresh now");
+					assigns.updateUI();
 				}
 			}
 		}
@@ -73,10 +74,17 @@ public class assignPanel extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
-            eAssign.setVisible(true);
+            eAssign = new editAssignPopup(assignList.get(assigns.getSelectedIndex()));
         }
     }
+    
+    private class SelctionListener implements ListSelectionListener{
 
-
+		public void valueChanged(ListSelectionEvent e) {
+			int lastIndex = e.getLastIndex();
+						
+		}
+    	
+    }
 
 }
