@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.event.*;
+
 import java.util.*;
 
 public class assignPanel extends JPanel
@@ -49,26 +50,21 @@ public class assignPanel extends JPanel
         buttons.setVisible(true);
         
     }
-    
+
 	private class addListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			aAssign.setVisible(true);
 			if (aAssign.submitClicked()) {
 				int aNum = 3; // for now
-				try {
-					String x = aAssign.getName();
-					String y = (aAssign.getDate());
-					assignList.add(new Assignment(x, y, aNum));
-					assigns.setListData(assignList);
 
-				} finally {
+				String x = aAssign.getName();
+				String y = (aAssign.getDate());
+				if (x != "" && y != "")
+				{
+					assignList.add(new Assignment(x, y, aNum));
 					assigns.setListData(assignList);
 				}
 			}
-			// assigns.setListData(assignList);
-			// assigns.updateUI();
-			// assignList.add(aAssign.getName());
-
 		}
 	}
 
@@ -80,13 +76,7 @@ public class assignPanel extends JPanel
             eAssign.setVisible(true);
         }
     }
-    
-//     private class updateListener implements ListDataListener
-//     {
-//         public void contentsChanged(ListDataEvent e) 
-//         {
-//             
-//         }
-//     }
-    
+
+
+
 }

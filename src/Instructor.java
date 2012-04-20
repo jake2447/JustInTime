@@ -30,6 +30,14 @@ public class Instructor extends User{
     public Vector<Assignment> getAList(){
     	return instrAssignmentList;
     }
+    
+    public void addAssignment(String name, String date, int number){
+    	instrAssignmentList.add(new Assignment(name,date,number));
+    }
+    
+    public void deleteAssignment(Assignment asst){
+    	instrAssignmentList.remove(asst);
+    }
 
     public double getAssignmentAverage(Assignment assn){
     	int aNum = assn.getAssignmentNumber();

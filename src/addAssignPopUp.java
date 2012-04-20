@@ -77,8 +77,8 @@ private class SubmitListener implements ActionListener
         	clicked = true;
             aName = name.getText();
             dDate = due.getText();
-            name.setText(" ");
-            due.setText(" ");
+            name.setText("");
+            due.setText("");
             setVisible(false);
         }
     }
@@ -87,6 +87,9 @@ private class CancelListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
+        	clicked = false;
+        	name.setText("");
+            due.setText("");
             setVisible(false);
         }
     }
