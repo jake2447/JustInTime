@@ -10,19 +10,18 @@ public class editAssignPopup extends JFrame
     private JButton add, edit, delete;
     private JTextField prompt;
     private JPanel box, inside;
+    private addQuestionPopup addQ;
     
-    private Vector<String> changethis;
+    private Vector<Question> qList;
     
     
-    public editAssignPopup()
+    public editAssignPopup(Assignment a)
     {
         setSize(600, 300);
         
-        changethis = new Vector<String>();
-        changethis.add("q1");
-        changethis.add("q2");
-        
-        qs = new JList(changethis);        
+        qList = a.getQuestionList();
+
+        qs = new JList(qList);        
         qs.setSize(300,150);
         
         box = new JPanel();
@@ -31,7 +30,7 @@ public class editAssignPopup extends JFrame
         inside = new JPanel();
         inside.setLayout(new GridLayout(3,1));
         
-        prompt = new JTextField("name of assignment?");
+        prompt = new JTextField(a.getName());
         
         add = new JButton("add");
         add.addActionListener(new addListener());
@@ -61,7 +60,8 @@ private class addListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-
+        	addQ = new addQuestionPopup();
+        	addQ.setVisible(true);
         }
     }
     
