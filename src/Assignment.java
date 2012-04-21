@@ -20,7 +20,8 @@ public class Assignment implements Serializable
 	public Assignment(String aName, String GUIdate, int number)
 	{
 		assignmentName = aName;
-		dueDate = parseDateFromGUI(GUIdate);
+		dueDate = new GregorianCalendar();
+		parseDateFromGUI(GUIdate);
 		assignmentNumber = number;
 	}
 	
@@ -55,9 +56,11 @@ public class Assignment implements Serializable
 		this.dueDate = dueDate;
 	}
 	
-	public Calendar getDueDate() 
+	public Calendar getDueDate()
 	{
-		return dueDate;
+		Calendar newCal = new GregorianCalendar();
+		newCal.setTime(dueDate.getTime());
+		return newCal;
 	}
 	
 	public String getDueDateAsString()
@@ -66,10 +69,20 @@ public class Assignment implements Serializable
 	}
 	
 	
-	public Calendar parseDateFromGUI(String GUIdate) 
+	public void parseDateFromGUI(String GUIdate) 
 	{
-		Calendar dDate = new GregorianCalendar();
-		return dDate;
+		DateFormat formatter;
+		Date date;
+		
+		formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		
+		try {
+			date = (Date)formatter.parse(GUIdate);
+			dueDate.setTime(date);
+		} catch (ParseException e) {
+			System.out.println("Enter a valid date.");
+		}
+				
 	}
 	
 	public String toString (){
