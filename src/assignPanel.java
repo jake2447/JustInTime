@@ -31,7 +31,7 @@ public class assignPanel extends JPanel
         edit.addActionListener(new editListener());
         
         delete = new JButton("Delete Assignment");
-        
+        delete.addActionListener(new DeleteListener());
         assigns = new JList();
         assigns.setListData(assignList);
         

@@ -20,12 +20,13 @@ public class deletePopup extends JFrame
         setSize(300, 200);
 
         box = new JPanel();
-        box.setLayout(new GridLayout(2,1));
+        box.setLayout(new GridLayout(1,2));
         
         inside = new JPanel();
-        inside.setLayout(new GridLayout(1,2));
+        inside.setLayout(new GridLayout(2,1));
         
         prompt = new JTextField("?");
+        prompt.setEditable(false);
         
         y = new JButton("yes");
         y.addActionListener(new yes());

@@ -13,6 +13,7 @@ public class studentScores extends JPanel
     
     public studentScores()
     {
+    	setLayout(new GridLayout(2,1));
         stuList = new Vector<String>();
         stuList.add("one");
         view = new JButton("View Student");
