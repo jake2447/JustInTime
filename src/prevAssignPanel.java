@@ -11,11 +11,12 @@ public class prevAssignPanel extends JPanel
     private JTextField earned, assign;
     private JPanel box;
     private JLabel prompt;
-    
+    private previousAssignmentView prev;
     
     public prevAssignPanel()
     {
         selected = new JButton("View Details");
+        selected.addActionListener(new detailListener());
         assignments = new JComboBox();
         earned = new JTextField("points");
         earned.setEditable(false);
@@ -38,11 +39,12 @@ public class prevAssignPanel extends JPanel
             
     }
     
-    private class ButtonListener implements ActionListener
+    private class detailListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-        
+        	prev = new previousAssignmentView();
+        	prev.setVisible(true);
         }
     }
     
