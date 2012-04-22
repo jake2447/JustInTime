@@ -23,11 +23,13 @@ public class Assignment implements Serializable
 		dueDate = new GregorianCalendar();
 		parseDateFromGUI(GUIdate);
 		assignmentNumber = number;
+		questionList = new Vector<Question>();
 	}
 	
 	public Assignment(Assignment asst)
 	{
 		questionList = asst.getQuestionList();
+		assignmentName = asst.getName();
 		assignmentNumber = asst.getAssignmentNumber();
 		dueDate = asst.getDueDate();
 	}
@@ -74,7 +76,7 @@ public class Assignment implements Serializable
 		DateFormat formatter;
 		Date date;
 		
-		formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 		
 		try {
 			date = (Date)formatter.parse(GUIdate);
@@ -86,7 +88,7 @@ public class Assignment implements Serializable
 	}
 	
 	public String toString (){
-		return assignmentName;
+		return assignmentName + " Due on: " + getDueDateAsString();
 	}
 	
 	public String getName (){

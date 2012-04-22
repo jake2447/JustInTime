@@ -8,21 +8,24 @@
 	public class assignmentView extends JFrame
 	{
 	    private JTextField mainQ, a1, a2, a3, a4;
-	    private JLabel title;
+	    private JLabel title, body;
 	    private JRadioButton s1,s2,s3,s4;
 	    private JButton next;
 	    private JPanel box;
 	    private int selected;
 	    private Vector<String> questions;
 	    private Vector<Integer> answers;
-	    private Assignment current;
+	    private StudentAssignment currentA;
+	    private Question currentQ;
 	    
-	    public assignmentView()
+	    public assignmentView(StudentAssignment asst)
 	    {
+	    	currentA = asst;
+	    	currentQ = currentA.getQuestionList().get(0);
 	    	setSize(600,300);
-	    	title = new JLabel("Name HERE");
+	    	title = new JLabel(currentA.getName());
 	    	
-	    	mainQ = new JTextField(256);
+	    	body = new JLabel(currentQ.getQuestionBody());
 	    	a1 = new JTextField(128);
 	    	a2 = new JTextField(128);
 	    	a3 = new JTextField(128);
@@ -30,6 +33,7 @@
 	    	
 	    	s1 = new JRadioButton();
 	    	s1.addActionListener(new Listener1());
+	    	
 	    	s2 = new JRadioButton();
 	    	s2.addActionListener(new Listener2());
 	    	s3 = new JRadioButton();
@@ -55,7 +59,7 @@
 	    	
 	    	setLayout(new FlowLayout());
 	    	add(title);
-	    	add(mainQ);
+	    	add(body);
 	    	add(box);
 	    	add(next);
 	    	
@@ -105,12 +109,7 @@
 	       {
 	           public void actionPerformed(ActionEvent event)
 	            {
-	        	  // while(count<questionlist.size())
-// 	        	  {
-// 	        	      count ++;
-// 	        	      answers.add(selected);
-// 	        	      reset text fields to new question
-// 	        	  }
+	        	   
 	            }
 	       }
 	    

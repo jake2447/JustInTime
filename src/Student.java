@@ -37,6 +37,10 @@ public class Student extends User{
     	}
     	return null;
     }
+    
+    public Vector<StudentAssignment> getAList(){
+    	return assignmentList;
+    }
 
     public void takeAssignment(){
     	/**if(//assignment doesn't exist){

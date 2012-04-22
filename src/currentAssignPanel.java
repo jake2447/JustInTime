@@ -6,19 +6,21 @@ import java.util.*;
 
 public class currentAssignPanel extends JPanel
 {
-    private JList curr,due;
+    private JList leftList,due;
     private JButton select;
-    private DefaultListModel cAssign;
-    private Vector<String> assigns, dates;
+    //private DefaultListModel cAssign;
+    private Vector<StudentAssignment> assigns;
+    private Vector<String> dates;
     private JPanel box, box2;
     private JComboBox assignList;
     private assignmentView take;
+    private Student logStud;
     
-    public currentAssignPanel()
+    public currentAssignPanel(Student logStud)
     {
-        assigns = new Vector<String>();
-        assigns.add("one");
-        assigns.add("two");
+    	this.logStud = logStud;
+        assigns = logStud.getAList();
+        
         dates = new Vector<String>();
         dates.add("Assignment");
         dates.add("Due Date");
@@ -26,18 +28,18 @@ public class currentAssignPanel extends JPanel
         assignList = new JComboBox(assigns);
         assignList.addActionListener(new pickListener());
         
-        cAssign = new DefaultListModel();
+        //cAssign = new DefaultListModel();
         
-        curr = new JList(assigns);
+        leftList = new JList(assigns);
         due = new JList(dates);
         
         select = new JButton("select");
         select.addActionListener(new selectListener());
         
         box = new JPanel();
-        box.setLayout(new GridLayout(1,2));
-        box.add(curr);
-        box.add(due);
+        box.setLayout(new GridLayout(1,1));
+        box.add(leftList);
+
         
         box2 = new JPanel();
         box2.add(assignList);
@@ -61,7 +63,7 @@ public class currentAssignPanel extends JPanel
    {
        public void actionPerformed(ActionEvent e)
        {
-    	   take = new assignmentView();
+    	   take = new assignmentView(logStud.getAList().get(leftList.getSelectedIndex()));
            take.setVisible(true);
         }
     }
