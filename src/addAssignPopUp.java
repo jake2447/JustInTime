@@ -12,9 +12,11 @@ public class addAssignPopUp extends JFrame
     private JPanel box, inside;
     private String aName, dDate;
     private boolean clicked, statechanged;
+    private assignPanel ap;
     
-    public addAssignPopUp()
+    public addAssignPopUp(assignPanel ap)
     {
+    	this.ap = ap;
         box = new JPanel();
         inside = new JPanel();
         
@@ -79,6 +81,11 @@ private class SubmitListener implements ActionListener
             dDate = due.getText();
             name.setText("");
             due.setText("");
+            
+            Vector<Assignment> aList = ap.getAList();
+            aList.add(new Assignment(aName,dDate,1));
+            ap.getJList().setListData(aList);
+            System.out.println("should refresh now");
             setVisible(false);
         }
     }
