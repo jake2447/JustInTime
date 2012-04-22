@@ -11,6 +11,7 @@ public class singleStudent extends JFrame
     private JTextField earned, assign;
     private JPanel box;
     private JLabel prompt;
+    private singleAssignment a;
     
     
     public singleStudent()
@@ -44,6 +45,8 @@ public class singleStudent extends JFrame
     {
         public void actionPerformed(ActionEvent e)
         {
+        	a = new singleAssignment();
+            a.setVisible(true);
         }
     }
     
