@@ -30,7 +30,7 @@ public class StudentAssignment extends Assignment
 	//returns the grade of the assignment out of 100 percent
 	public double getGrade(){
 		if (questionList.size()>0)
-			grade = (getScore()/questionList.size())*100.0;
+			grade = (getScore()/(questionList.size() * pointsPerQuestion))*100.0;
 		else
 			grade = 0.0;
 		return grade;

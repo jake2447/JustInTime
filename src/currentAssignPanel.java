@@ -15,11 +15,19 @@ public class currentAssignPanel extends JPanel
     private JComboBox assignList;
     private assignmentView take;
     private Student logStud;
+    private DefaultListModel dlist;
     
     public currentAssignPanel(Student logStud)
     {
     	this.logStud = logStud;
-        assigns = logStud.getAList();
+    	assigns = logStud.getAList();
+        dlist = new DefaultListModel();
+        
+        
+        updateDListData();
+
+        
+        
         
         dates = new Vector<String>();
         dates.add("Assignment");
@@ -32,7 +40,7 @@ public class currentAssignPanel extends JPanel
         
         leftList = new JList(assigns);
         due = new JList(dates);
-        
+        leftList.setModel(dlist);
         select = new JButton("select");
         select.addActionListener(new selectListener());
         
@@ -57,6 +65,16 @@ public class currentAssignPanel extends JPanel
         
         setVisible(true);
         
+    }
+    
+    public void updateDListData(){
+    	Vector<StudentAssignment> v = assigns;
+    	Calendar cal = Calendar.getInstance();
+    	
+    	for (int i = 0; i < v.size(); i++){
+    		if (cal.before(v.get(i).getDueDate()))
+    			dlist.addElement(v.get(i));
+    	}
     }
     
    private class selectListener implements ActionListener
