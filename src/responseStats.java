@@ -13,6 +13,7 @@ public class responseStats extends JFrame
     private Vector<String> questions, numCorrect;
     private JPanel box, box2;
     private JComboBox assignList;
+    private singleQStats qstats;
     
     public responseStats()
     {
@@ -63,7 +64,8 @@ public class responseStats extends JFrame
    {
        public void actionPerformed(ActionEvent e)
        {
-           
+           qstats = new singleQStats();
+           qstats.setVisible(true);
         }
     }
     
