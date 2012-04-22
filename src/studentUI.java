@@ -19,7 +19,7 @@ public class studentUI extends JFrame
    public void init(Student logStud)
     {
         current = new currentAssignPanel(logStud);
-        previous = new prevAssignPanel();
+        previous = new prevAssignPanel(logStud);
         
         tpane = new JTabbedPane();
         tpane.addTab("Current Assignments", current );

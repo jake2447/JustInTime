@@ -55,7 +55,7 @@ public class login extends JApplet {
 			if (memList.checkUser(name.getText())){
 				if(memList.getUser(name.getText()).checkPassword(passw.getText())){
 					if (memList.getUser(name.getText()).getType()==0){
-						
+						studentUI sUI = new studentUI ((Student)(memList.getUser(name.getText())));
 					}
 					else {
 						instructorUI iUI = new instructorUI((Instructor)(memList.getUser(name.getText())));
