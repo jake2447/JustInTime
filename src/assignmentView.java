@@ -11,12 +11,13 @@
 	    private JLabel title, body;
 	    private JRadioButton s1,s2,s3,s4;
 	    private JButton next;
-	    private JPanel box;
+	    private JPanel box, bgroup, agroup;
 	    private int selected;
 	    private Vector<String> questions;
 	    private Vector<Integer> answers;
 	    private StudentAssignment currentA;
 	    private Question currentQ;
+	    private ButtonGroup group;
 	    
 	    public assignmentView(StudentAssignment asst)
 	    {
@@ -31,33 +32,48 @@
 	    	a3 = new JTextField(128);
 	    	a4 = new JTextField(128);
 	    	
-	    	s1 = new JRadioButton();
+	    	s1 = new JRadioButton(" ");
 	    	s1.addActionListener(new Listener1());
 	    	
-	    	s2 = new JRadioButton();
+	    	s2 = new JRadioButton(" ");
 	    	s2.addActionListener(new Listener2());
-	    	s3 = new JRadioButton();
+	    	s3 = new JRadioButton(" ");
 	    	s3.addActionListener(new Listener3());
-	    	s4 = new JRadioButton();
+	    	s4 = new JRadioButton(" ");
 	    	s4.addActionListener(new Listener4());
+	    	
+	    	group = new ButtonGroup();
+	    	group.add(s1);
+	    	group.add(s2);
+	    	group.add(s3);
+	    	group.add(s4);
 	    	
 	    	next = new JButton("Next");
 	    	next.addActionListener(new NextListener());
 	    	
-	    	box = new JPanel();
-	    	box.setLayout(new GridLayout(4,2));
+	    	bgroup = new JPanel();
+            bgroup.setLayout(new GridLayout(4,1));
+            bgroup.add(s1);
+            bgroup.add(s2);
+            bgroup.add(s3);
+            bgroup.add(s4);
+            bgroup.setVisible(true);
+            
+            agroup = new JPanel();
+            agroup.setLayout(new GridLayout(4,1));
+            agroup.add(a1);
+            agroup.add(a2);
+            agroup.add(a3);
+            agroup.add(a4);
+            agroup.setVisible(true);
+            
+            box = new JPanel();
+            box.setLayout(new GridLayout(1,2));
+            box.add(bgroup);
+            box.add(agroup);
+            box.setVisible(true);
 	    	
-	    	box.add(s1);
-	    	box.add(a1);
-	    	box.add(s2);
-	    	box.add(a2);
-	    	box.add(s3);
-	    	box.add(a3);
-	    	box.add(s4);
-	    	box.add(a4);
-	    	box.setVisible(true);
-	    	
-	    	setLayout(new FlowLayout());
+	    	setLayout(new GridLayout(4,1));
 	    	add(title);
 	    	add(body);
 	    	add(box);
