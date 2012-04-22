@@ -13,6 +13,7 @@ public class assignPanel extends JPanel
     private Vector<Assignment> assignList;
     private addAssignPopUp aAssign; 
     private editAssignPopup eAssign;
+    private deletePopup d;
     
 
    public assignPanel(Instructor loggedInInstr)
@@ -99,7 +100,8 @@ public class assignPanel extends JPanel
     {
     	public void actionPerformed(ActionEvent e)
     	{
-    		
+    		d= new deletePopup();
+    		d.setVisible(true);
     	}
     }
     	
