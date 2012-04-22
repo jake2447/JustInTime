@@ -84,6 +84,7 @@ public class assignPanel extends JPanel
         {
         	
             eAssign = new editAssignPopup(assignList.get(assigns.getSelectedIndex()));
+            eAssign.setVisible(true);
         }
     }
     
