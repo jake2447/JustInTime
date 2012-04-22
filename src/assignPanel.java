@@ -18,7 +18,7 @@ public class assignPanel extends JPanel
    public assignPanel(Instructor loggedInInstr)
 
     {
-        aAssign = new addAssignPopUp();
+        aAssign = new addAssignPopUp(this);
         
 
         assignList = loggedInInstr.getAList();
@@ -53,7 +53,7 @@ public class assignPanel extends JPanel
 	private class addListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			aAssign.setVisible(true);
-			if (aAssign.submitClicked()) {
+			/*if (aAssign.submitClicked()) {
 				int aNum = 3; // for now
 
 				String x = aAssign.getName();
@@ -65,10 +65,17 @@ public class assignPanel extends JPanel
 					System.out.println("should refresh now");
 					assigns.updateUI();
 				}
-			}
+			}*/
 		}
 	}
-
+	
+	public Vector<Assignment> getAList(){
+		return assignList;
+	}
+	
+	public JList getJList(){
+		return assigns;
+	}
     
     private class editListener implements ActionListener
     {
