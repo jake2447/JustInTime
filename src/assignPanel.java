@@ -87,5 +87,15 @@ public class assignPanel extends JPanel
 		}
     	
     }
+    
+    private class DeleteListener implements ActionListener
+    {
+    	public void actionPerformed(ActionEvent e)
+    	{
+    		
+    	}
+    }
+    	
+    }
 
-}
+
