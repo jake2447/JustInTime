@@ -11,18 +11,21 @@ public class editAssignPopup extends JFrame
     private JTextField prompt;
     private JPanel box, inside;
     private addQuestionPopup addQ;
+    private Assignment x;
     
     private Vector<Question> qList;
     
     
     public editAssignPopup(Assignment a)
     {
+    	x =a; // this may cause a reference problem
         setSize(600, 300);
         
         qList = a.getQuestionList();
 
         qs = new JList(qList);        
         qs.setSize(300,150);
+        
         
         box = new JPanel();
         box.setLayout(new GridLayout(1,3));
@@ -51,19 +54,18 @@ public class editAssignPopup extends JFrame
         inside.setVisible(true);
         
         add(inside);
-                
         
+      
     }
 
-    
 private class addListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-        	addQ = new addQuestionPopup();
+        	addQ = new addQuestionPopup(x);  // b/c it gets modified here
         	addQ.setVisible(true);
         }
-    }
+    } 
     
 private class editListener implements ActionListener
     {
