@@ -81,7 +81,8 @@ public class currentAssignPanel extends JPanel
    {
        public void actionPerformed(ActionEvent e)
        {
-    	   take = new assignmentView(logStud.getAList().get(leftList.getSelectedIndex()));
+    	   StudentAssignment csel = (StudentAssignment)(leftList.getSelectedValue());
+    	   take = new assignmentView(csel);
            take.setVisible(true);
         }
     }
