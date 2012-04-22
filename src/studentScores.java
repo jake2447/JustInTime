@@ -9,6 +9,7 @@ public class studentScores extends JPanel
     private Vector<String> stuList;
     private JList students;
     private JButton view;
+    private singleStudent stu;
     
     
     public studentScores()
@@ -17,6 +18,7 @@ public class studentScores extends JPanel
         stuList = new Vector<String>();
         stuList.add("one");
         view = new JButton("View Student");
+        view.addActionListener(new singleView());
         
         students = new JList(stuList);
         
@@ -25,5 +27,13 @@ public class studentScores extends JPanel
         
         setVisible(true);
         
+    }
+    private class singleView implements ActionListener
+    {
+         public void actionPerformed(ActionEvent e)
+         {
+            stu = new singleStudent();
+            stu.setVisible(true);
+         }
     }
 }
