@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.event.*;
+
 import java.util.*;
 
 public class prevAssignPanel extends JPanel
@@ -15,6 +16,7 @@ public class prevAssignPanel extends JPanel
     private JLabel prompt;
     private previousAssignmentView prev;
     private Student logStud;
+    private StudentAssignment csel;
     
     public prevAssignPanel(Student logStud)
     {
@@ -23,15 +25,19 @@ public class prevAssignPanel extends JPanel
         selected = new JButton("View Details");
         selected.addActionListener(new detailListener());
         assignments = new JComboBox();
-        earned = new JTextField("points");
-        earned.setEditable(false);
         assign = new JList();
+        assign.addListSelectionListener(new SelectionListener());
         updateDListData();
         assign.setModel(dlist);
+                
+        earned = new JTextField("Grade for selected assignment: ");
+        earned.setEditable(false);      
+        
         box = new JPanel();
         prompt = new JLabel("Select an Assignment for more detail");
         box.setLayout(new GridLayout(2,1));
-        
+               
+        		
         setLayout(new GridLayout(2,2));
         box.add(prompt);
         box.add(assignments);
@@ -50,7 +56,7 @@ public class prevAssignPanel extends JPanel
     	Calendar cal = Calendar.getInstance();
     	for (int i = 0; i < v.size(); i++){
     		if (cal.after(v.get(i).getDueDate()))
-    			dlist.add(i, v.get(i));
+    			dlist.addElement(v.get(i));
     	}
     }
     
@@ -61,6 +67,15 @@ public class prevAssignPanel extends JPanel
         	prev = new previousAssignmentView();
         	prev.setVisible(true);
         }
+    }
+    
+    private class SelectionListener implements ListSelectionListener{
+
+		public void valueChanged(ListSelectionEvent e) {
+			csel = (StudentAssignment)(assign.getSelectedValue());
+			System.out.print(csel.getName());
+			earned.setText("Grade for selected assignment: " + csel.getGrade());
+		}    	
     }
     
 }
