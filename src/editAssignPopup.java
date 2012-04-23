@@ -66,6 +66,7 @@ public class editAssignPopup extends JFrame
     public JList getJList(){
     	return qs;
     }
+    
 
 private class addListener implements ActionListener
     {
@@ -88,7 +89,8 @@ private class editListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-  
+        	x.deleteQuestion((Question)(qs.getSelectedValue()));
+        	qs.setListData(qList);
         }
     }
     

@@ -98,4 +98,8 @@ public class Assignment implements Serializable
 	public void addQuestion(Question q){
 		questionList.add(q);
 	}
+
+	public void deleteQuestion(Question question) {
+		questionList.remove(question);
+	}
 }
