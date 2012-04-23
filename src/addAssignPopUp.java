@@ -4,16 +4,7 @@ import java.awt.event.*;
 import javax.swing.event.*;
 import java.util.*;
 
-<<<<<<< HEAD
-public class addAssignPopUp extends JFrame {
-	private JTextField name, due;
-	private JLabel assignName, dueDate;
-	private JButton submit, cancel;
-	private JPanel box, inside;
-	private String aName, dDate;
-	private boolean clicked, statechanged;
-	private assignPanel ap;
-=======
+
 public class addAssignPopUp extends JFrame
 {
     private JTextField name, due;
@@ -60,47 +51,6 @@ public class addAssignPopUp extends JFrame
         box.setVisible(true);
     }
     
-public String getName()
-{
-    return aName;
-}
-
-
-	public addAssignPopUp(assignPanel ap)
-
-	{
-		this.ap = ap;
-		box = new JPanel();
-		inside = new JPanel();
-
-		name = new JTextField(24);
-		name.addActionListener(new SubmitListener());
-		due = new JTextField(24);
-		due.addActionListener(new SubmitListener());
-
-		assignName = new JLabel("Name of Assignment");
-		dueDate = new JLabel("Due Date");
-
-		submit = new JButton("Submit");
-		submit.addActionListener(new SubmitListener());
-
-		cancel = new JButton("cancel");
-		cancel.addActionListener(new CancelListener());
-
-		box.setLayout(new GridLayout(1, 2));
-		box.add(submit);
-		box.add(cancel);
-
-		inside.setLayout(new GridLayout(5, 1));
-		inside.add(assignName);
-		inside.add(name);
-		inside.add(dueDate);
-		inside.add(due);
-		inside.add(box);
-		this.add(inside);
-		setSize(300, 300);
-		box.setVisible(true);
-	}
 
 	public String getName() {
 		return aName;
@@ -144,6 +94,6 @@ public String getName()
 	}
 
 }
-}
+
     
 
