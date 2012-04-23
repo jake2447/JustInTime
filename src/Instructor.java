@@ -18,6 +18,10 @@ public class Instructor extends User{
     public void addQuestion(int x, Question ques, Assignment asst){
     	asst.questionList.add(x, ques);
     }
+    
+    public void addStudent(Student stud){
+    	studentList.add(stud);
+    }
 
     public void removeQuestion(int x, Assignment asst){
     	asst.questionList.remove(x);
