@@ -16,7 +16,6 @@ public class editAssignPopup extends JFrame
     
     private Vector<Question> qList;
     
-    
     public editAssignPopup(Assignment a)
     {
     	x =a; // this may cause a reference problem
