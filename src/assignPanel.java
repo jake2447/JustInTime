@@ -7,7 +7,7 @@ import java.util.*;
 
 public class assignPanel extends JPanel
 {
-    private JButton add, edit, delete;
+    private JButton add, edit, delete,assign;
     private JList assigns;
     private JPanel buttons;
     private Vector<Assignment> assignList;
@@ -32,16 +32,21 @@ public class assignPanel extends JPanel
         
         delete = new JButton("Delete Assignment");
         delete.addActionListener(new DeleteListener());
+        
+        assign = new JButton("Assign");
+        assign.addActionListener(new AssignListener());
+        
         assigns = new JList();
         assigns.setListData(assignList);
         
      //   assigns.addActionListener(new updateListener()) ;
         
         buttons = new JPanel();
-        buttons.setLayout(new GridLayout(1,3));
+        buttons.setLayout(new GridLayout(1,4));
         buttons.add(add);
         buttons.add(edit);
         buttons.add(delete);
+        buttons.add(assign);
         
         setLayout(new GridLayout(2,1));
         add(assigns);
@@ -103,6 +108,14 @@ public class assignPanel extends JPanel
     	{
     		d= new deletePopup();
     		d.setVisible(true);
+    	}
+    }
+    
+    private class AssignListener implements ActionListener
+    {
+    	public void actionPerformed(ActionEvent e)
+    	{
+    		
     	}
     }
     	
