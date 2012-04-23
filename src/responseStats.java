@@ -7,9 +7,9 @@ import java.util.*;
 
 public class responseStats extends JFrame
 {
+	private JLabel ques, score;
     private JList q,c;
     private JButton select;
-    private DefaultListModel cAssign;
     private Vector<String> questions, numCorrect;
     private JPanel box, box2;
     private JComboBox assignList;
@@ -18,7 +18,7 @@ public class responseStats extends JFrame
     public responseStats()
     {
         setSize(400,400);
-       
+               
         questions = new Vector<String>();
         questions.add("qone");
         questions.add("qtwo");
@@ -29,10 +29,11 @@ public class responseStats extends JFrame
         assignList = new JComboBox(questions);
         assignList.addActionListener(new pickListener());
         
-        cAssign = new DefaultListModel();
         
         q = new JList(questions);
+        q.setSize(200,20);
         c = new JList(numCorrect);
+        c.setSize(200,20);
         
         select = new JButton("select");
         select.addActionListener(new selectListener());

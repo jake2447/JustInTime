@@ -174,7 +174,7 @@ public void setTextColors(){
 				setTextColors();
 
 				if (currentIndex==currentA.getQuestionList().size()-1){
-					next.setText("Submit");
+					next.setText("Done");
 				}
 			}
 			catch (ArrayIndexOutOfBoundsException e)
