@@ -16,11 +16,6 @@ public class addAssignPopUp extends JFrame
     
     public addAssignPopUp(assignPanel ap)
     
-    
-    
-    
-    
-    
     {
     	this.ap = ap;
         box = new JPanel();

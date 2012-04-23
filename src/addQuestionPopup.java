@@ -21,7 +21,7 @@
 	    {
 	    	current = a;
 	    	setSize(600,300);
-	    	title = new JLabel("Name HERE");
+	    	title = new JLabel("add question");
 	    	
 	    	mainQ = new JTextField(100);
 	    	a1 = new JTextField(128);
