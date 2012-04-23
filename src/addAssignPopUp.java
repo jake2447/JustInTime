@@ -15,6 +15,12 @@ public class addAssignPopUp extends JFrame
     private assignPanel ap;
     
     public addAssignPopUp(assignPanel ap)
+    
+    
+    
+    
+    
+    
     {
     	this.ap = ap;
         box = new JPanel();
@@ -85,7 +91,7 @@ private class SubmitListener implements ActionListener
             Vector<Assignment> aList = ap.getAList();
             aList.add(new Assignment(aName,dDate,1));
             ap.getJList().setListData(aList);
-            System.out.println("should refresh now");
+            //System.out.println("should refresh now");
             setVisible(false);
         }
     }

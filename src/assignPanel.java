@@ -22,8 +22,8 @@ public class assignPanel extends JPanel
     {
         aAssign = new addAssignPopUp(this);
         
-        logInstr = loggedInInstr;
-        assignList = logInstr.getAList();
+		logInstr = loggedInInstr;
+        assignList = loggedInInstr.getAList();
         
         add = new JButton("Add Assignment");
         add.addActionListener(new addListener());
@@ -60,19 +60,6 @@ public class assignPanel extends JPanel
 	private class addListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			aAssign.setVisible(true);
-			/*if (aAssign.submitClicked()) {
-				int aNum = 3; // for now
-
-				String x = aAssign.getName();
-				String y = (aAssign.getDate());
-				if (x != "" && y != "")
-				{
-					assignList.add(new Assignment(x, y, aNum));
-					assigns.setListData(assignList);
-					System.out.println("should refresh now");
-					assigns.updateUI();
-				}
-			}*/
 		}
 	}
 	
@@ -107,7 +94,7 @@ public class assignPanel extends JPanel
     {
     	public void actionPerformed(ActionEvent e)
     	{
-    		d= new deletePopup();
+    		d = new deletePopup(assignList,assigns.getSelectedIndex());    		
     		d.setVisible(true);
     	}
     }
