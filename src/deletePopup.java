@@ -10,12 +10,15 @@ public class deletePopup extends JFrame
     private JButton y,n;
     private JTextField prompt;
     private JPanel box, inside;
-    private boolean delete,i;
+    private boolean delete;
+    private int i;
+    private Vector<Assignment> list;
        
-    public deletePopup()
+    public deletePopup(Vector<Assignment> alist, int index)
     {
+    	list = alist;
+    	i= index;
         delete = false;
-        i = false;
         
         setSize(300, 200);
 
@@ -46,22 +49,6 @@ public class deletePopup extends JFrame
         
     }
     
-public boolean DeleteIt()
-{
-    if(delete)
-    {
-        delete = false;
-        return true;
-    }
-    else
-    return delete;
-}
-
-public boolean Input()
-{
-    return i;
-}
-
     
 private class no implements ActionListener
     {
@@ -69,7 +56,6 @@ private class no implements ActionListener
         {
             delete = false;
             setVisible(false);
-            i=true;
         }
     }
     
@@ -79,7 +65,7 @@ private class yes implements ActionListener
         {
             delete = true;
             setVisible(false);
-            i=true;
+            list.remove(i);
         }
     }
     
