@@ -25,7 +25,7 @@ public class deletePopup extends JFrame
         inside = new JPanel();
         inside.setLayout(new GridLayout(2,1));
         
-        prompt = new JTextField("?");
+        prompt = new JTextField("Continue with deletion?");
         prompt.setEditable(false);
         
         y = new JButton("yes");
