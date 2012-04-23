@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.event.*;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class prevAssignPanel extends JPanel
@@ -34,13 +35,12 @@ public class prevAssignPanel extends JPanel
         earned.setEditable(false);      
         
         box = new JPanel();
-        prompt = new JLabel("Select an Assignment for more detail");
-        box.setLayout(new GridLayout(2,1));
+        prompt = new JLabel("Total Average Grade: " + calculateAvgGrade() + "%");
+        box.setLayout(new GridLayout(1,1));
                
         		
         setLayout(new GridLayout(2,2));
         box.add(prompt);
-        box.add(assignments);
         this.add(assign);
         this.add(earned);
         this.add(box);
@@ -60,6 +60,17 @@ public class prevAssignPanel extends JPanel
     	}
     }
     
+    public String calculateAvgGrade(){
+    	double grade = 0;
+    	for (int i = 0; i < dlist.size(); i++){
+    		grade += ((StudentAssignment)(dlist.get(i))).getGrade();
+    	}
+    	grade =  grade / dlist.size();
+    	DecimalFormat fmt = new DecimalFormat("###.##");
+    	String output = fmt.format(grade);
+    	return output;
+    }
+    
     private class detailListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
@@ -73,7 +84,7 @@ public class prevAssignPanel extends JPanel
 
 		public void valueChanged(ListSelectionEvent e) {
 			csel = (StudentAssignment)(assign.getSelectedValue());
-			earned.setText("Grade for selected assignment: " + csel.getGrade());
+			earned.setText("Grade for selected assignment: " + csel.getGrade() + "%");
 		}    	
     }
     
