@@ -64,7 +64,7 @@ public class prevAssignPanel extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
-        	prev = new previousAssignmentView();
+        	prev = new previousAssignmentView(csel);
         	prev.setVisible(true);
         }
     }
@@ -73,7 +73,6 @@ public class prevAssignPanel extends JPanel
 
 		public void valueChanged(ListSelectionEvent e) {
 			csel = (StudentAssignment)(assign.getSelectedValue());
-			System.out.print(csel.getName());
 			earned.setText("Grade for selected assignment: " + csel.getGrade());
 		}    	
     }

@@ -48,11 +48,7 @@ public class Question implements Serializable{
 	
 	//this method returns a new list that is a copy of the current answerTexts array
 	public Vector<String> getAnswerText(){
-		Vector<String> listCopy = new Vector<String>();
-		for (int i = 0; i < answerTexts.size(); i++){
-			listCopy.set(i, answerTexts.get(i));
-		}
-		return listCopy;
+		return answerTexts;
 	}
 	
 	//returns the main text of the question body
@@ -76,7 +72,7 @@ public class Question implements Serializable{
 	//this method will take an Vector<String> as a parameter and set the answerTexts strings appropriately
 	public void setAnswerText(Vector<String> newAnswerTexts){
 		for (int i = 0; i < newAnswerTexts.size(); i++){
-			answerTexts.set(i, newAnswerTexts.get(i));
+			answerTexts.add(newAnswerTexts.get(i));
 		}
 	}
 	
