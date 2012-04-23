@@ -50,9 +50,8 @@ public class currentAssignPanel extends JPanel
 
         
         box2 = new JPanel();
-        box2.add(assignList);
         box2.add(select);
-        box2.setLayout(new GridLayout(1,2));
+        box2.setLayout(new GridLayout(1,1));
         
         box2.setVisible(true);
         box.setVisible(true);
@@ -81,9 +80,15 @@ public class currentAssignPanel extends JPanel
    {
        public void actionPerformed(ActionEvent e)
        {
-    	   StudentAssignment csel = (StudentAssignment)(leftList.getSelectedValue());
-    	   take = new assignmentView(csel);
-           take.setVisible(true);
+    	   try {
+    		   StudentAssignment csel = (StudentAssignment)(leftList.getSelectedValue());
+    		   take = new assignmentView(csel);
+    		   take.setVisible(true);
+    	   }
+    	   catch (NullPointerException ex){
+    		   System.out.println("Select an assignment.");
+    	   }
+    	   
         }
     }
    
