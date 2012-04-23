@@ -9,10 +9,10 @@ public class Student extends User{
     	TYPE = 0;
     }
     
-    public Student(Vector<StudentAssignment> stAsstList){
+    /*public Student(Vector<StudentAssignment> stAsstList){
     	assignmentList = stAsstList;
     	TYPE = 0;
-    }
+    }*/
 
     public StudentAssignment tempAsst(int x){
     	return (StudentAssignment) assignmentList.get(x);

@@ -12,7 +12,7 @@ public class editAssignPopup extends JFrame
     private JPanel box, inside;
     private addQuestionPopup addQ;
     private Assignment x;
-    
+    private editAssignPopup ept;    
     private Vector<Question> qList;
     
     
@@ -20,6 +20,7 @@ public class editAssignPopup extends JFrame
     {
     	x =a; // this may cause a reference problem
         setSize(600, 300);
+        ept = this;
         
         qList = a.getQuestionList();
 
@@ -57,12 +58,20 @@ public class editAssignPopup extends JFrame
         
       
     }
+    
+    public Assignment getAssn(){
+    	return x;
+    }
+    
+    public JList getJList(){
+    	return qs;
+    }
 
 private class addListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-        	addQ = new addQuestionPopup(x);  // b/c it gets modified here
+        	addQ = new addQuestionPopup(ept);  // b/c it gets modified here
         	addQ.setVisible(true);
         }
     } 

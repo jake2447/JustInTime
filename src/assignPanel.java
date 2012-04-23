@@ -76,8 +76,14 @@ public class assignPanel extends JPanel
         public void actionPerformed(ActionEvent e)
         {
         	
-            eAssign = new editAssignPopup(assignList.get(assigns.getSelectedIndex()));
-            eAssign.setVisible(true);
+            try {
+            	eAssign = new editAssignPopup(assignList.get(assigns.getSelectedIndex()));
+            	eAssign.setVisible(true);
+            }
+            catch (ArrayIndexOutOfBoundsException ex){
+            	System.out.println("Select an assignment");
+            }
+            
         }
     }
     

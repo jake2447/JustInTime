@@ -70,12 +70,12 @@ public class login extends JFrame {
 					if (memList.getUser(name.getText()).getType()==0){
 						studentUI sUI = new studentUI ((Student)(memList.getUser(name.getText())));
 						sUI.setVisible(true);
-						close();
+						//close();
 					}
 					else {
 						instructorUI iUI = new instructorUI((Instructor)(memList.getUser(name.getText())));
 						iUI.setVisible(true);
-						close();
+						//close();
 					}
 				}
 			}

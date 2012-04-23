@@ -10,8 +10,6 @@ public class assignmentView extends JFrame {
 	private JRadioButton s0, s1, s2, s3;
 	private JButton next;
 	private JPanel box, bgroup, agroup;
-	private Vector<String> questions;
-	private Vector<Integer> answers;
 	private StudentAssignment currentA;
 	private Question currentQ;
 	private int currentIndex;

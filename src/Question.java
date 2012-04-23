@@ -71,7 +71,7 @@ public class Question implements Serializable{
 	
 	//this method will take an Vector<String> as a parameter and set the answerTexts strings appropriately
 	public void setAnswerText(Vector<String> newAnswerTexts){
-		for (int i = 0; i < newAnswerTexts.size(); i++){
+		for (int i = 0; i < 4; i++){
 			answerTexts.add(newAnswerTexts.get(i));
 		}
 	}
@@ -102,6 +102,16 @@ public class Question implements Serializable{
 			return true;
 		else
 			return false;
+	}
+	
+	public String toString(){
+		try{
+			return questionBody.substring(0, 32);
+		}
+		catch (StringIndexOutOfBoundsException ex){
+			return questionBody;
+		}
+		
 	}
 	
 }
