@@ -14,14 +14,15 @@ public class assignPanel extends JPanel
     private addAssignPopUp aAssign; 
     private editAssignPopup eAssign;
     private deletePopup d;
+    private Instructor logInstr;
     
 
    public assignPanel(Instructor loggedInInstr)
 
     {
-	   
-        aAssign = new addAssignPopUp(this);        
-
+        aAssign = new addAssignPopUp(this);
+        
+		logInstr = loggedInInstr;
         assignList = loggedInInstr.getAList();
         
         add = new JButton("Add Assignment");
@@ -102,7 +103,7 @@ public class assignPanel extends JPanel
     {
     	public void actionPerformed(ActionEvent e)
     	{
-    		
+    		logInstr.assign(assignList.get(assigns.getSelectedIndex()));
     	}
     }
     	

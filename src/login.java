@@ -3,11 +3,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.event.*;
 
-public class login extends JApplet {
+public class login extends JFrame {
 	private JPanel frame;
 	private JButton login;
 	private JLabel username, password;
-	private JTextField name, passw;
+	private JTextField name;
+	private JPasswordField passw;
 	private boolean correct;
 	Members memList;
 
@@ -18,7 +19,7 @@ public class login extends JApplet {
 		
 		memList = mem;
 
-		setPreferredSize(new Dimension(300, 200));
+		this.setSize(new Dimension(300, 200));
 
 		frame = new JPanel();
 		frame.setLayout(new GridLayout(3, 2));
@@ -29,7 +30,7 @@ public class login extends JApplet {
 		name = new JTextField(16);
 		// name.addActionListener(new NameListener());
 
-		passw = new JTextField(16);
+		passw = new JPasswordField(16);
 		// passw.addActionListener(new PassListener());
 
 		login = new JButton("Continue");
@@ -45,22 +46,42 @@ public class login extends JApplet {
 		setVisible(true);
 
 	}
+	
+	public void close(){
+		this.setVisible(false);
+	}
 
 	public boolean getAccept() {
 		return correct;
 	}
 
 	private class LoginListener implements ActionListener {
+		
 		public void actionPerformed(ActionEvent e) {
-			if (memList.checkUser(name.getText())){
-				if(memList.getUser(name.getText()).checkPassword(passw.getText())){
+			
+			if (memList.checkUser(name.getText())){	
+				
+				User currentU = memList.getUser(name.getText());
+		
+				if(currentU.checkPassword(new String(passw.getPassword()))){
+					
+					System.out.println("here");
+					
 					if (memList.getUser(name.getText()).getType()==0){
 						studentUI sUI = new studentUI ((Student)(memList.getUser(name.getText())));
+						sUI.setVisible(true);
+						close();
 					}
 					else {
 						instructorUI iUI = new instructorUI((Instructor)(memList.getUser(name.getText())));
+						iUI.setVisible(true);
+						close();
 					}
 				}
+			}
+			else
+			{	
+				System.out.println("name not found");
 			}
 		}
 	}
