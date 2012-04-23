@@ -46,6 +46,10 @@ public class login extends JFrame {
 		setVisible(true);
 
 	}
+	
+	public void close(){
+		this.setVisible(false);
+	}
 
 	public boolean getAccept() {
 		return correct;
@@ -66,10 +70,12 @@ public class login extends JFrame {
 					if (memList.getUser(name.getText()).getType()==0){
 						studentUI sUI = new studentUI ((Student)(memList.getUser(name.getText())));
 						sUI.setVisible(true);
+						close();
 					}
 					else {
 						instructorUI iUI = new instructorUI((Instructor)(memList.getUser(name.getText())));
 						iUI.setVisible(true);
+						close();
 					}
 				}
 			}
