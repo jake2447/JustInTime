@@ -84,7 +84,7 @@ public class prevAssignPanel extends JPanel
 
 		public void valueChanged(ListSelectionEvent e) {
 			csel = (StudentAssignment)(assign.getSelectedValue());
-			earned.setText("Grade for selected assignment: " + csel.getGrade() + "%");
+			earned.setText("Grade for selected assignment: " + csel.getStringGrade() + "%");
 		}    	
     }
     

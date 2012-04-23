@@ -2,6 +2,7 @@
 //	Date Modified:		4/10/12
 //	Filename:			StudentAssignment.java
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class StudentAssignment extends Assignment
@@ -27,13 +28,25 @@ public class StudentAssignment extends Assignment
 		return score;
 	}
 	
-	//returns the grade of the assignment out of 100 percent
 	public double getGrade(){
 		if (questionList.size()>0)
 			grade = (getScore()/(questionList.size() * pointsPerQuestion))*100.0;
 		else
-			grade = 0.0;
+			grade = 0.0;    	
 		return grade;
+	}
+	
+	//returns the grade of the assignment out of 100 percent
+	public String getStringGrade(){
+		if (questionList.size()>0)
+			grade = (getScore()/(questionList.size() * pointsPerQuestion))*100.0;
+		else
+			grade = 0.0;
+		
+		DecimalFormat fmt = new DecimalFormat("###.##");
+    	String output = fmt.format(grade);
+    	
+		return output;
 	}
 	
 	//calculates the score of the assignment as correct answers * pointsPerQuestion
