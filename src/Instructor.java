@@ -58,4 +58,8 @@ public class Instructor extends User{
         	studentList.get(count).addAssignment(asst);
         }
     }
+    
+    public Vector<Student> getSList(){
+    	return studentList;
+    }
 }

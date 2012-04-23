@@ -21,7 +21,7 @@ public class instructorUI extends JFrame
    public void init(Instructor loggedInInstr)
     {
         assign = new assignPanel(loggedInInstr);
-        scores = new scoresPanel();
+        scores = new scoresPanel(loggedInInstr);
         
         tpane = new JTabbedPane();
         tpane.addTab("Assignments", assign );

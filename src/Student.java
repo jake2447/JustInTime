@@ -3,9 +3,13 @@ import java.util.*;
 
 public class Student extends User{
     private Vector<StudentAssignment> assignmentList = new Vector<StudentAssignment>();
+    private String username;
+	private String password;
 
     public Student(String username, String password){
     	super(username,password);
+    	this.username = username;
+    	this.password = password;
     	TYPE = 0;
     }
     
@@ -40,6 +44,11 @@ public class Student extends User{
     
     public Vector<StudentAssignment> getAList(){
     	return assignmentList;
+    }
+    
+    public String toString()
+    {
+    	return username;
     }
 
     public void takeAssignment(){
