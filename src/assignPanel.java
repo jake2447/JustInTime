@@ -20,9 +20,10 @@ public class assignPanel extends JPanel
    public assignPanel(Instructor loggedInInstr)
 
     {
+		logInstr = loggedInInstr;
+	   
         aAssign = new addAssignPopUp(this);
         
-		logInstr = loggedInInstr;
         assignList = loggedInInstr.getAList();
         
         add = new JButton("Add Assignment");

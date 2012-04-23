@@ -9,14 +9,17 @@ public class scoresPanel extends JPanel
     private JTabbedPane tabs;
     private assignScores aScore;
     private studentScores sScores;
+    private Instructor logi;
     
     private JPanel viewAssign, viewStudents;
     
-    public scoresPanel()
+    public scoresPanel(Instructor loggedInInstr)
     {
+    	logi = loggedInInstr;
+    	
         tabs = new JTabbedPane();
         aScore = new assignScores();
-        sScores = new studentScores();
+        sScores = new studentScores(logi);
         tabs.addTab("List Assignments", aScore);
         tabs.addTab("List Students",sScores);
         setLayout(new GridLayout(1,1));

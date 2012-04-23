@@ -10,9 +10,13 @@ public class addStudent extends JFrame
     private JTextField n, p;
     private JButton create;
     private JPanel box, inside;
+    private Instructor instr;
+    private studentScores stu;
        
-    public addStudent()
+    public addStudent(Instructor i, studentScores st)
     {
+    	this.stu = st;
+    	instr =i;
         setSize(300, 200);
 
         box = new JPanel();
@@ -56,6 +60,9 @@ private class adListener implements ActionListener
         	String x = n.getText();
         	String y = p.getText();
         	Student s = new Student(x,y);
+        	instr.addStudent(s);
+        	stu.getJList().setListData(instr.getSList());
+        	setVisible(false);
         }
     }
     
