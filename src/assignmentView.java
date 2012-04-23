@@ -22,7 +22,7 @@ public class assignmentView extends JFrame {
 		currentIndex = 0;
 		currentQ = currentA.getQuestionList().get(currentIndex);
 		setSize(600, 300);
-		title = new JLabel(currentA.getName());
+		title = new JLabel("Viewing question " + (currentIndex + 1) + " from " + currentA.getName());
 
 		mainQ = new JTextField(currentQ.getQuestionBody(), 256);
 		mainQ.setEditable(false);
@@ -132,6 +132,7 @@ public class assignmentView extends JFrame {
 				a1.setText(currentQ.getAnswerText().get(1));
 				a2.setText(currentQ.getAnswerText().get(2));
 				a3.setText(currentQ.getAnswerText().get(3));
+				title.setText("Viewing question " + (currentIndex + 1) + " from " + currentA.getName());
 
 				if (currentIndex==currentA.getQuestionList().size()-1){
 					next.setText("Submit");
