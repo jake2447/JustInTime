@@ -18,7 +18,7 @@
         private Assignment current;
         private ButtonGroup group;
         
-        public singleAssignment()
+        public singleAssignment(Assignment a)
         {
             setSize(600,300);
             title = new JLabel("Name HERE");

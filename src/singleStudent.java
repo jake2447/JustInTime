@@ -12,18 +12,25 @@ public class singleStudent extends JFrame
     private JPanel box;
     private JLabel prompt;
     private singleAssignment a;
+    private Student stu;
     
     
-    public singleStudent()
+    public singleStudent(Student s)
     {
+    	stu = s;
+    	
         setSize(500,600);
         selected = new JButton("View Details");
         selected.addActionListener(new detailListener());
-        assignments = new JComboBox();
+        
+        assignments = new JComboBox(stu.getAList());
+        
         earned = new JTextField("points");
         earned.setEditable(false);
+        
         assign = new JTextField("assignments");
         assign.setEditable(false);
+        
         box = new JPanel();
         prompt = new JLabel("Select an Assignment for more detail");
         box.setLayout(new GridLayout(2,1));
@@ -45,7 +52,9 @@ public class singleStudent extends JFrame
     {
         public void actionPerformed(ActionEvent e)
         {
-        	a = new singleAssignment();
+        	int i = assignments.getSelectedIndex();
+        	
+        	a = new singleAssignment(stu.getAList().elementAt(i));
             a.setVisible(true);
         }
     }
