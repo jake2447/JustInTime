@@ -16,9 +16,11 @@ public class editQuestionPopup extends JFrame {
 	private Question currentQ;
 	private int currentIndex;
 	private ButtonGroup group;
+	private Members mem;
 
-	public editQuestionPopup(editAssignPopup ep, Question q) {
+	public editQuestionPopup(editAssignPopup ep, Question q, Members mem) {
 		
+		this.mem = mem;
 		currentQ = q;
 		this.ep = ep;
 		currentA = ep.getAssn();
@@ -130,6 +132,7 @@ public class editQuestionPopup extends JFrame {
 	}
 	
 	public void close(){
+		mem.dataUpdate();
 		this.setVisible(false);
 	}
 

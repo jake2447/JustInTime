@@ -15,9 +15,11 @@ public class editAssignPopup extends JFrame
     private editQuestionPopup editQ;
     private editAssignPopup ept;    
     private Vector<Question> qList;
+    private Members mem;
     
-    public editAssignPopup(Assignment a)
+    public editAssignPopup(Assignment a, Members mem)
     {
+    	this.mem = mem;
     	x =a; // this may cause a reference problem
         setSize(600, 300);
         ept = this;
@@ -73,7 +75,7 @@ private class addListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-        	addQ = new addQuestionPopup(ept);  // b/c it gets modified here
+        	addQ = new addQuestionPopup(ept,mem);  // b/c it gets modified here
         	addQ.setVisible(true);
         }
     } 
@@ -82,7 +84,7 @@ private class editListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-        	editQ = new editQuestionPopup(ept,(Question)(qs.getSelectedValue()));
+        	editQ = new editQuestionPopup(ept,(Question)(qs.getSelectedValue()),mem);
         	editQ.setVisible(true);
         }
     }
@@ -93,6 +95,7 @@ private class editListener implements ActionListener
         {
         	x.deleteQuestion((Question)(qs.getSelectedValue()));
         	qs.setListData(qList);
+        	mem.dataUpdate();
         }
     }
     

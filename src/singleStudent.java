@@ -8,10 +8,10 @@ public class singleStudent extends JFrame
 {
     private prevAssignPanel prev;
        
-    public singleStudent(Student logStud)
+    public singleStudent(Student logStud, Members mem)
     {       
     		
-            prev = new prevAssignPanel(logStud);
+            prev = new prevAssignPanel(logStud,mem);
             prev.setVisible(true);
             add(prev);
             setSize(1024,768);

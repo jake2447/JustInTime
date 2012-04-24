@@ -13,9 +13,11 @@ public class deletePopup extends JFrame
     private boolean delete;
     private int i;
     private Vector<Assignment> list;
+    private Members mem;
        
-    public deletePopup(Vector<Assignment> alist, int index)
+    public deletePopup(Vector<Assignment> alist, int index, Members mem)
     {
+    	this.mem = mem;
     	list = alist;
     	i= index;
         delete = false;
@@ -64,8 +66,10 @@ private class yes implements ActionListener
         public void actionPerformed(ActionEvent e)
         {
             delete = true;
-            setVisible(false);
             list.remove(i);
+            mem.dataUpdate();
+            setVisible(false);
+            
         }
     }
     

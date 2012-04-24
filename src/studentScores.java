@@ -13,11 +13,15 @@ public class studentScores extends JPanel {
 	private JPanel box;
 	private addStudent as;
 	private Instructor instr;
+	private Members mem;
 
-	public studentScores(Instructor logInInstr) {
+	public studentScores(Instructor logInInstr, Members mem) {
+		
+		this.mem = mem;
+		
 		instr = logInInstr;
 		
-		as = new addStudent(instr,this);
+		as = new addStudent(instr,this,mem);
 		
 		setLayout(new GridLayout(2, 1));
 		stuList = instr.getSList();
@@ -25,7 +29,7 @@ public class studentScores extends JPanel {
 		view = new JButton("View Student");
 		view.addActionListener(new singleView());
 		
-		add = new JButton("add Student");
+		add = new JButton("Add Student");
 		add.addActionListener(new addListener());
 		
 		box = new JPanel();
@@ -50,7 +54,7 @@ public class studentScores extends JPanel {
 
 	private class singleView implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			stu = new singleStudent((Student)(students.getSelectedValue()));
+			stu = new singleStudent((Student)(students.getSelectedValue()),mem);
 			stu.setVisible(true);
 		}
 	}
@@ -58,7 +62,6 @@ public class studentScores extends JPanel {
 	private class addListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			as.setVisible(true);
-			
 		}
 	}
 }

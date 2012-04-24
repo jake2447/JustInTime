@@ -10,18 +10,22 @@ public class instructorUI extends JFrame
    private int APPLET_WIDTH = 1200, APPLET_HEIGHT = 600;
    Instructor loggedInInstr;
    
+   
 
-   public instructorUI(Instructor instructor) {
+   public instructorUI(Instructor instructor, Members mem) {
 	// TODO Auto-generated constructor stub
-	   init(instructor);
+	   init(instructor,mem);
+	   System.out.println(mem);
    }
 
 
 //The method init initializes the Applet with a Pane with two tabs
-   public void init(Instructor loggedInInstr)
+   public void init(Instructor loggedInInstr, Members mem)
     {
-        assign = new assignPanel(loggedInInstr);
-        scores = new scoresPanel(loggedInInstr);
+	   
+
+	   	assign = new assignPanel(loggedInInstr,mem);
+        scores = new scoresPanel(loggedInInstr,mem);
         
         tpane = new JTabbedPane();
         tpane.addTab("Assignments", assign );
