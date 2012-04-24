@@ -82,7 +82,7 @@ private class editListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-        	editQ = new editQuestionPopup();
+        	editQ = new editQuestionPopup(ept,(Question)(qs.getSelectedValue()));
         	editQ.setVisible(true);
         }
     }
