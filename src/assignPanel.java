@@ -15,14 +15,17 @@ public class assignPanel extends JPanel
     private editAssignPopup eAssign;
     private deletePopup d;
     private Instructor logInstr;
+    private Members mem;
     
 
-   public assignPanel(Instructor loggedInInstr)
+   public assignPanel(Instructor loggedInInstr, Members mem)
 
     {
+	   	this.mem = mem;
+
 		logInstr = loggedInInstr;
 	   
-        aAssign = new addAssignPopUp(this);
+        aAssign = new addAssignPopUp(this,mem);
         
         assignList = loggedInInstr.getAList();
         
@@ -78,7 +81,7 @@ public class assignPanel extends JPanel
         {
         	
             try {
-            	eAssign = new editAssignPopup(assignList.get(assigns.getSelectedIndex()));
+            	eAssign = new editAssignPopup(assignList.get(assigns.getSelectedIndex()),mem);
             	eAssign.setVisible(true);
             }
             catch (ArrayIndexOutOfBoundsException ex){
@@ -101,7 +104,7 @@ public class assignPanel extends JPanel
     {
     	public void actionPerformed(ActionEvent e)
     	{
-    		d = new deletePopup(assignList,assigns.getSelectedIndex());    		
+    		d = new deletePopup(assignList,assigns.getSelectedIndex(), mem);    		
     		d.setVisible(true);
     	}
     }
@@ -111,6 +114,7 @@ public class assignPanel extends JPanel
     	public void actionPerformed(ActionEvent e)
     	{
     		logInstr.assign(assignList.get(assigns.getSelectedIndex()));
+    		mem.dataUpdate();
     	}
     }
     	

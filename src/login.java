@@ -73,7 +73,7 @@ public class login extends JFrame {
 						//close();
 					}
 					else {
-						instructorUI iUI = new instructorUI((Instructor)(memList.getUser(name.getText())));
+						instructorUI iUI = new instructorUI((Instructor)(memList.getUser(name.getText())),memList);
 						iUI.setVisible(true);
 						//close();
 					}

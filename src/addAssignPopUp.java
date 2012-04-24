@@ -14,10 +14,12 @@ public class addAssignPopUp extends JFrame
     private String aName, dDate;
     private boolean clicked, statechanged;
     private assignPanel ap;
+    private Members mem;
     
-    public addAssignPopUp(assignPanel ap)
+    public addAssignPopUp(assignPanel ap, Members mem)
     
     {
+    	this.mem = mem;
     	this.ap = ap;
         box = new JPanel();
         inside = new JPanel();
@@ -80,6 +82,7 @@ public class addAssignPopUp extends JFrame
 			aList.add(new Assignment(aName, dDate, 1));
 			ap.getJList().setListData(aList);
 			// System.out.println("should refresh now");
+			mem.dataUpdate();
 			setVisible(false);
 		}
 	}

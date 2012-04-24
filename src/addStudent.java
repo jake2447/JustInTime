@@ -10,11 +10,14 @@ public class addStudent extends JFrame
     private JTextField n, p;
     private JButton create;
     private JPanel box, inside;
+ 
     private Instructor instr;
     private studentScores stu;
+    private Members mem;
        
-    public addStudent(Instructor i, studentScores st)
+    public addStudent(Instructor i, studentScores st, Members mem)
     {
+    	this.mem = mem;
     	this.stu = st;
     	instr =i;
         setSize(300, 200);
@@ -58,10 +61,10 @@ private class adListener implements ActionListener
         public void actionPerformed(ActionEvent e)
         {
         	String x = n.getText();
-        	String y = p.getText();
-        	Student s = new Student(x,y);
-        	instr.addStudent(s);
-        	stu.getJList().setListData(instr.getSList());
+        	if (mem.checkUser(x)){
+        		instr.addStudent((Student) mem.getUser(x));
+        		stu.getJList().setListData(instr.getSList());
+        	}        	
         	setVisible(false);
         }
     }
