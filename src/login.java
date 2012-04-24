@@ -65,10 +65,10 @@ public class login extends JFrame {
 		
 				if(currentU.checkPassword(new String(passw.getPassword()))){
 					
-					System.out.println("here");
+					//System.out.println("here");
 					
 					if (memList.getUser(name.getText()).getType()==0){
-						studentUI sUI = new studentUI ((Student)(memList.getUser(name.getText())));
+						studentUI sUI = new studentUI ((Student)(memList.getUser(name.getText())),memList);
 						sUI.setVisible(true);
 						//close();
 					}

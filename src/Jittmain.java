@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Vector;
 
 
 public class Jittmain {
@@ -24,13 +25,8 @@ public class Jittmain {
 			mem = new Members();
 		}
 		
-		
-		mem = new Members();
-		mem.addUser("s1", "s1pass", 0);
-		mem.addUser("i1", "i1pass", 1);
-		
-		System.out.println(mem);
-		
+		mem.dataUpdate();
+
 		login log = new login(mem);
 		
 		//log.setVisible(true);

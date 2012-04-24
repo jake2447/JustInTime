@@ -14,8 +14,10 @@ public class assignmentView extends JFrame {
 	private Question currentQ;
 	private int currentIndex;
 	private ButtonGroup group;
+	private Members mem;
 
-	public assignmentView(StudentAssignment asst) {
+	public assignmentView(StudentAssignment asst, Members mem) {
+		this.mem = mem;
 		currentA = asst;
 		currentIndex = 0;
 		currentQ = currentA.getQuestionList().get(currentIndex);
@@ -93,6 +95,7 @@ public class assignmentView extends JFrame {
 	}
 	
 	public void close(){
+		mem.dataUpdate();
 		this.setVisible(false);
 	}
 

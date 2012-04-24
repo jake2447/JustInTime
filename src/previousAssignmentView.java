@@ -17,8 +17,10 @@ public class previousAssignmentView extends JFrame {
 	private int currentIndex;
 	private ButtonGroup group;
 	private Color def;
+	private Members mem;
 
-	public previousAssignmentView(StudentAssignment asst) {
+	public previousAssignmentView(StudentAssignment asst, Members mem) {
+		this.mem = mem;
 		currentA = asst;
 		currentIndex = 0;
 		currentQ = currentA.getQuestionList().get(currentIndex);
@@ -200,6 +202,7 @@ public void setTextColorsCorrect(){
 	
 	
 	public void close(){
+		mem.dataUpdate();
 		this.setVisible(false);
 	}
 

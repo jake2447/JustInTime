@@ -9,17 +9,19 @@ public class studentUI extends JFrame
    private prevAssignPanel previous;
    private int APPLET_WIDTH = 1200, APPLET_HEIGHT = 600;
    private Student logStud;
+   private Members mem;
    
-   public studentUI (Student logStud){
+   public studentUI (Student logStud, Members mem){
 	   this.logStud = logStud;
+	   this.mem = mem;
 	   init(logStud);
    }
 
    //The method init initializes the Applet with a Pane with two tabs
    public void init(Student logStud)
     {
-        current = new currentAssignPanel(logStud);
-        previous = new prevAssignPanel(logStud);
+        current = new currentAssignPanel(logStud, mem);
+        previous = new prevAssignPanel(logStud, mem);
         
         tpane = new JTabbedPane();
         tpane.addTab("Current Assignments", current );
