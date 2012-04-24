@@ -18,7 +18,7 @@ public class StudentAssignment extends Assignment
 	}
 	
 	public StudentAssignment(Assignment asst){
-		super(asst);
+		super(asst,1);
 	}
 	
 	//returns the score of the assignment after calculating it

@@ -33,12 +33,17 @@ public class Question implements Serializable{
 			else{
 				answerTexts.add(i, newAnswers.get(i));
 			}			
-		}
-		
+		}		
 		questionBody = newBody;
 		correctAnswer = newCorrectAnswer;
+		selectedAnswer = -1;		
+	}
+	
+	public Question(Question q){
+		questionBody = new String(q.getQuestionBody());
+		correctAnswer = q.getCorrectAnswer();
 		selectedAnswer = -1;
-		
+		answerTexts = new Vector<String>(q.getAnswerText());
 	}
 	
 	//--------------------------------------------------------------------------------------------

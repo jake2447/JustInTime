@@ -33,6 +33,17 @@ public class Assignment implements Serializable
 		tstamp = asst.getTStamp();
 		dueDate = asst.getDueDate();
 	}
+	
+	public Assignment(Assignment asst, int i)
+	{
+		questionList = new Vector<Question>();
+		for (int in = 0; in < asst.getQuestionList().size(); in++){
+			questionList.add(new Question(asst.getQuestionList().get(in)));
+		}
+		assignmentName = asst.getName();
+		tstamp = asst.getTStamp();
+		dueDate = asst.getDueDate();
+	}
 		
 	public String getTStamp()
 	{
