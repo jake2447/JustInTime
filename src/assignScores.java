@@ -35,7 +35,7 @@ public class assignScores extends JPanel
          public void actionPerformed(ActionEvent e)
          {
         	 Assignment temp = assignments.get(assign.getSelectedIndex());
-        	 System.out.println(temp);
+        	 //System.out.println(temp);
             stats = new responseStats(temp, i);
             stats.setVisible(true);
          }

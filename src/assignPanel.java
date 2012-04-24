@@ -14,20 +14,25 @@ public class assignPanel extends JPanel
     private addAssignPopUp aAssign; 
     private editAssignPopup eAssign;
     private deletePopup d;
+    private DefaultListModel dlist;
     private Instructor logInstr;
     private Members mem;
+    private assignPanel ap;
     
 
    public assignPanel(Instructor loggedInInstr, Members mem)
 
     {
+	   	ap = this;
 	   	this.mem = mem;
 
 		logInstr = loggedInInstr;
 	   
         aAssign = new addAssignPopUp(this,mem);
-        
+        dlist = new DefaultListModel();        
         assignList = loggedInInstr.getAList();
+        
+        updateDListData();
         
         add = new JButton("Add Assignment");
         add.addActionListener(new addListener());
@@ -42,7 +47,7 @@ public class assignPanel extends JPanel
         assign.addActionListener(new AssignListener());
         
         assigns = new JList();
-        assigns.setListData(assignList);
+        assigns.setModel(dlist);
         
      //   assigns.addActionListener(new updateListener()) ;
         
@@ -71,6 +76,10 @@ public class assignPanel extends JPanel
 		return assignList;
 	}
 	
+	public DefaultListModel getDList(){
+		return dlist;
+	}
+	
 	public JList getJList(){
 		return assigns;
 	}
@@ -81,7 +90,7 @@ public class assignPanel extends JPanel
         {
         	
             try {
-            	eAssign = new editAssignPopup(assignList.get(assigns.getSelectedIndex()),mem);
+            	eAssign = new editAssignPopup((Assignment) assigns.getSelectedValue(),mem,ap);
             	eAssign.setVisible(true);
             }
             catch (ArrayIndexOutOfBoundsException ex){
@@ -89,6 +98,15 @@ public class assignPanel extends JPanel
             }
             
         }
+    }
+    
+    public void updateDListData(){
+    	Vector<Assignment> v = assignList;
+    	for (int i = 0; i < v.size(); i++){
+    		if (!v.get(i).getAssigned())
+    			dlist.addElement(v.get(i));
+    	}    	
+    	mem.dataUpdate();
     }
     
     private class SelctionListener implements ListSelectionListener{
@@ -104,8 +122,9 @@ public class assignPanel extends JPanel
     {
     	public void actionPerformed(ActionEvent e)
     	{
-    		d = new deletePopup(assignList,assigns.getSelectedIndex(), mem);    		
-    		d.setVisible(true);
+    			d = new deletePopup(assignList,assignList.indexOf(assigns.getSelectedValue()), mem,ap);
+    			d.setVisible(true);
+   		
     	}
     }
     
@@ -113,8 +132,12 @@ public class assignPanel extends JPanel
     {
     	public void actionPerformed(ActionEvent e)
     	{
-    		logInstr.assign(assignList.get(assigns.getSelectedIndex()));
-    		mem.dataUpdate();
+
+    			logInstr.assign((Assignment) assigns.getSelectedValue());
+    			((Assignment)(assigns.getSelectedValue())).setAssigned();
+    			updateDListData();
+    			mem.dataUpdate();
+
     	}
     }
     	

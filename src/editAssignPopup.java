@@ -17,8 +17,9 @@ public class editAssignPopup extends JFrame
     private editAssignPopup ept;    
     private Vector<Question> qList;
     private Members mem;
+    private assignPanel ap;
     
-    public editAssignPopup(Assignment a, Members mem)
+    public editAssignPopup(Assignment a, Members mem, assignPanel ap)
     {
     	this.mem = mem;
     	x =a; 

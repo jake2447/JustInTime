@@ -80,7 +80,7 @@ public class addAssignPopUp extends JFrame
 
 			Vector<Assignment> aList = ap.getAList();
 			aList.add(new Assignment(aName, dDate));
-			ap.getJList().setListData(aList);
+			ap.updateDListData();
 			// System.out.println("should refresh now");
 			mem.dataUpdate();
 			setVisible(false);

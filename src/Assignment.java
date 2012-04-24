@@ -15,6 +15,7 @@ public class Assignment implements Serializable
 	public Vector<Question> questionList;
 	private String assignmentName, tstamp;
 	private Calendar dueDate;
+	private boolean assigned;
 	
 	public Assignment(String aName, String GUIdate)
 	{
@@ -24,6 +25,7 @@ public class Assignment implements Serializable
 		Calendar cal = Calendar.getInstance();
 		tstamp = cal.getTime().toString();
 		questionList = new Vector<Question>();
+		assigned = false;
 	}
 	
 	public Assignment(Assignment asst)
@@ -32,6 +34,7 @@ public class Assignment implements Serializable
 		assignmentName = asst.getName();
 		tstamp = asst.getTStamp();
 		dueDate = asst.getDueDate();
+		assigned = false;
 	}
 	
 	public Assignment(Assignment asst, int i)
@@ -43,11 +46,20 @@ public class Assignment implements Serializable
 		assignmentName = asst.getName();
 		tstamp = asst.getTStamp();
 		dueDate = asst.getDueDate();
+		assigned = false;
 	}
 		
 	public String getTStamp()
 	{
 		return tstamp;
+	}
+	
+	public boolean getAssigned(){
+		return assigned;
+	}
+	
+	public void setAssigned(){
+		assigned = true;
 	}
 	
 	public Vector<Question> getQuestionList()

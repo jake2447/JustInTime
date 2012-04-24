@@ -79,7 +79,7 @@ public class Instructor extends User{
     		count++;
     	}
     	if (count != 0)
-    		return grade/count;
+    		return (grade/count) * 100.0;
     	else
     		return 0.0;
     }
