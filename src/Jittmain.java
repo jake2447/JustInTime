@@ -1,11 +1,12 @@
 import java.io.*;
+import java.util.Vector;
 
 
 public class Jittmain {
 	
-	public static void main (String args[]){
+	public static void main (String args[]) throws IOException{
 		Members mem;
-		/*try {
+		try {
 			FileInputStream fin = new FileInputStream("members.data");
 			InputStream buffer = new BufferedInputStream(fin);
 			ObjectInputStream oin = new ObjectInputStream(fin);
@@ -23,14 +24,9 @@ public class Jittmain {
 			System.out.println("error 3");
 			mem = new Members();
 		}
-		*/
 		
-		mem = new Members();
-		mem.addUser("s1", "s1pass", 0);
-		mem.addUser("i1", "i1pass", 1);
-		
-		System.out.println(mem);
-		
+		mem.dataUpdate();
+
 		login log = new login(mem);
 		
 		//log.setVisible(true);

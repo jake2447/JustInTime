@@ -16,10 +16,12 @@ public class currentAssignPanel extends JPanel
     private assignmentView take;
     private Student logStud;
     private DefaultListModel dlist;
+    private Members mem;
     
-    public currentAssignPanel(Student logStud)
+    public currentAssignPanel(Student logStud, Members mem)
     {
     	this.logStud = logStud;
+    	this.mem = mem;
     	assigns = logStud.getAList();
         dlist = new DefaultListModel();
         
@@ -74,6 +76,8 @@ public class currentAssignPanel extends JPanel
     		if (cal.before(v.get(i).getDueDate()))
     			dlist.addElement(v.get(i));
     	}
+    	
+    	mem.dataUpdate();
     }
     
    private class selectListener implements ActionListener
@@ -82,7 +86,7 @@ public class currentAssignPanel extends JPanel
        {
     	   try {
     		   StudentAssignment csel = (StudentAssignment)(leftList.getSelectedValue());
-    		   take = new assignmentView(csel);
+    		   take = new assignmentView(csel, mem);
     		   take.setVisible(true);
     	   }
     	   catch (NullPointerException ex){

@@ -18,9 +18,11 @@ public class prevAssignPanel extends JPanel
     private previousAssignmentView prev;
     private Student logStud;
     private StudentAssignment csel;
+    private Members mem;
     
-    public prevAssignPanel(Student logStud)
+    public prevAssignPanel(Student logStud, Members mem)
     {
+    	this.mem = mem;
     	dlist = new DefaultListModel();
     	this.logStud = logStud;
         selected = new JButton("View Details");
@@ -75,7 +77,7 @@ public class prevAssignPanel extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
-        	prev = new previousAssignmentView(csel);
+        	prev = new previousAssignmentView(csel,mem);
         	prev.setVisible(true);
         }
     }
