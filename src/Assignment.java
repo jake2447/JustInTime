@@ -102,4 +102,16 @@ public class Assignment implements Serializable
 	public void deleteQuestion(Question question) {
 		questionList.remove(question);
 	}
+	
+	public Vector<Integer> getCorrect() // list of correct answer indexes
+	{
+		Vector<Integer> r = new Vector<Integer>();
+		for(int i =0; i < questionList.size()-1; i++) // size starts with 1
+		{
+			int x  = questionList.get(i).getCorrectAnswer();
+			r.add(x);
+		}	
+		return r;
+	}
 }
+

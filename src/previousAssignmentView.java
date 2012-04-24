@@ -50,6 +50,11 @@ public class previousAssignmentView extends JFrame {
 		s3 = new JRadioButton(" ");
 		
 		setRadioButtons();
+		
+		s0.setEnabled(false);
+		s1.setEnabled(false);
+		s2.setEnabled(false);
+		s3.setEnabled(false);
 
 		group = new ButtonGroup();
 		group.add(s0);
@@ -78,7 +83,8 @@ public class previousAssignmentView extends JFrame {
 		
 		def = a0.getBackground();
 		
-		setTextColors();
+		setTextColorsSelected();
+		setTextColorsCorrect();
 
 		box = new JPanel();
 		box.setLayout(new GridLayout(1, 2));
@@ -116,39 +122,77 @@ public class previousAssignmentView extends JFrame {
 			s2.setSelected(true);
 			s3.setSelected(false);
 		}
-		else {
+		else if (currentQ.getSelectedAnswer()==3){
 			s0.setSelected(false);
 			s1.setSelected(false);
 			s2.setSelected(false);
 			s3.setSelected(true);
 		}
+		else{
+			s0.setSelected(false);
+			s1.setSelected(false);
+			s2.setSelected(false);
+			s3.setSelected(false);
+		}		
+	}
+
+public void setTextColorsSelected(){
+	if (currentQ.getSelectedAnswer()==0){
+		a0.setBackground(Color.red);
+		a1.setBackground(def);
+		a2.setBackground(def);
+		a3.setBackground(def);
+	}
+	else if (currentQ.getSelectedAnswer()==1) {
+		a0.setBackground(def);
+		a1.setBackground(Color.red);
+		a2.setBackground(def);
+		a3.setBackground(def);
+	}
+	else if (currentQ.getSelectedAnswer()==2) {
+		a0.setBackground(def);
+		a1.setBackground(def);
+		a2.setBackground(Color.red);
+		a3.setBackground(def);
+	}
+	else if (currentQ.getSelectedAnswer()==3) {
+		a0.setBackground(def);
+		a1.setBackground(def);
+		a2.setBackground(def);
+		a3.setBackground(Color.red);
 		
 	}
-	
-public void setTextColors(){
+	else {
+		a0.setBackground(Color.blue);
+		a1.setBackground(Color.blue);
+		a2.setBackground(Color.blue);
+		a3.setBackground(Color.blue);
+	}
+}
+public void setTextColorsCorrect(){
 		
 		if (currentQ.getCorrectAnswer()==0){
 			a0.setBackground(Color.green);
-			a1.setBackground(def);
-			a2.setBackground(def);
-			a3.setBackground(def);
+			//a1.setBackground(def);
+			//a2.setBackground(def);
+			//a3.setBackground(def);
 		}
 		else if (currentQ.getCorrectAnswer()==1) {
-			a0.setBackground(def);
+			//a0.setBackground(def);
 			a1.setBackground(Color.green);
-			a2.setBackground(def);
-			a3.setBackground(def);
+			//a2.setBackground(def);
+			//a3.setBackground(def);
 		}
 		else if (currentQ.getCorrectAnswer()==2) {
-			a0.setBackground(def);
-			a1.setBackground(def);
+			//a0.setBackground(def);
+			//a1.setBackground(def);
 			a2.setBackground(Color.green);
-			a3.setBackground(def);
+			//a3.setBackground(def);
 		}
 		else {
-			a0.setBackground(def);
-			a1.setBackground(def);
-			a2.setBackground(def);
+			//a0.setBackground(def);
+			//a1.setBackground(def);
+			//a2.setBackground(def);
 			a3.setBackground(Color.green);
 		}
 		
@@ -171,7 +215,8 @@ public void setTextColors(){
 				a3.setText(currentQ.getAnswerText().get(3));
 				title.setText("Viewing question " + (currentIndex + 1) + " from " + currentA.getName());
 				setRadioButtons();
-				setTextColors();
+				setTextColorsSelected();
+				setTextColorsCorrect();
 
 				if (currentIndex==currentA.getQuestionList().size()-1){
 					next.setText("Done");

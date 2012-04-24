@@ -62,4 +62,18 @@ public class Instructor extends User{
     public Vector<Student> getSList(){
     	return studentList;
     }
+  /*  
+    public Vector<Integer> getQuestionAverage(int num)
+    {
+    	Vector<Integer> assignCorrect = new Vector<Integer>();
+    	Vector<Integer> sTotal = new Vector<Integer>();
+    	
+    	for (int i = 0; i < instrAssignmentList.size(); i++)
+    	{    		
+    		assignCorrect = instrAssignmentList.get(i).getCorrect(); // list of correct selections for single assignment
+    		int x = studentList.get(i).getAList().get(num).getQuestionList().get(i).getSelectedAnswer(); // single student selected answer
+    		
+    	}
+    }
+   */ 
 }

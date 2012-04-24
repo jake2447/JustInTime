@@ -20,8 +20,8 @@ public class scoresPanel extends JPanel
         tabs = new JTabbedPane();
         aScore = new assignScores(logi);
         sScores = new studentScores(logi);
-        tabs.addTab("List Assignments", aScore);
-        tabs.addTab("List Students",sScores);
+        tabs.addTab("Assignment Scores", aScore);
+        tabs.addTab("Students",sScores);
         setLayout(new GridLayout(1,1));
         this.setSize(400,200);
         add(tabs);
