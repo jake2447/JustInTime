@@ -6,16 +6,18 @@ import java.util.*;
 
 public class singleQStats extends JFrame
 {
-    private Vector<String> questions, selected;
+    private Vector<String> answers;
+    private Vector<Double> breakdown;
     private JPanel box;
     private JLabel title;
     private JTextArea op, s;
     
-    public singleQStats()
+    public singleQStats(Instructor instr, Question q, Assignment asst)
     {
+
         setSize(400,400);
         
-        title = new JLabel("Selected Responses for Question");
+        title = new JLabel("Selected Responses for Question: " + asst.getQuestionList().indexOf(q) + " from assignment " + asst.getName());
         s = new JTextArea();
         s.setText("");
         s.setEditable(false);
@@ -24,25 +26,18 @@ public class singleQStats extends JFrame
         op.setText("");
         op.setEditable(false);
        
-        questions = new Vector<String>();
-        questions.add("A");
-        questions.add("B");
-        questions.add("C");
-        questions.add("D");
-        selected = new Vector<String>();
-        selected.add("35");
-        selected.add("47");
-        selected.add("55");
-        selected.add("43");
+        answers = q.getAnswerText();
+        
+        breakdown = instr.getQuestionBreakdown(asst.getQuestionList().indexOf(q), asst);
         
         for(int i=0;i<4;i++)
         {
-            op.append(questions.get(i) + "\n");
+            op.append(answers.get(i) + "\n");
         }
         
         for(int i=0;i<4;i++)
         {
-            s.append(selected.get(i) + "\n");
+            s.append(breakdown.get(i) + "\n");
         }
         
         

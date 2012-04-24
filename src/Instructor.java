@@ -35,8 +35,8 @@ public class Instructor extends User{
     	return instrAssignmentList;
     }
     
-    public void addAssignment(String name, String date, int number){
-    	instrAssignmentList.add(new Assignment(name,date,number));
+    public void addAssignment(String name, String date){
+    	instrAssignmentList.add(new Assignment(name,date));
     }
     
     public void deleteAssignment(Assignment asst){
@@ -44,13 +44,16 @@ public class Instructor extends User{
     }
 
     public double getAssignmentAverage(Assignment assn){
-    	int aNum = assn.getAssignmentNumber();
+    	String tstamp = assn.getTStamp();
     	double avg = 0;
     	for (int i = 0; i < studentList.size(); i++){
-    		StudentAssignment temp = studentList.get(i).findAssignemnt(aNum);
+    		StudentAssignment temp = studentList.get(i).findAssignemnt(tstamp);
     		avg += temp.getGrade();
     	}
-    	return avg / studentList.size();
+    	if (studentList.size()!=0)
+    		return avg / studentList.size();
+    	else
+    		return 0.0;
     }
 
     public void assign(Assignment asst){
@@ -62,18 +65,56 @@ public class Instructor extends User{
     public Vector<Student> getSList(){
     	return studentList;
     }
-  /*  
-    public Vector<Integer> getQuestionAverage(int num)
+   
+    public double getQuestionAverageCorrect(int index, Assignment asst)
     {
-    	Vector<Integer> assignCorrect = new Vector<Integer>();
-    	Vector<Integer> sTotal = new Vector<Integer>();
+    	double grade = 0;
+    	int count = 0;
+    	for (int i = 0; i < studentList.size(); i++){
+    		StudentAssignment temp = studentList.get(i).findAssignemnt(asst.getTStamp());
+    		Question tempQ = temp.getQuestionList().get(index);
+    		if (tempQ.compareAnswers()){
+    			grade++;
+    		}
+    		count++;
+    	}
+    	if (count != 0)
+    		return grade/count;
+    	else
+    		return 0.0;
+    }
+    
+    public Vector<Double> getQuestionBreakdown(int index, Assignment asst){
+    	Vector<Double> v = new Vector<Double>();
+    	double a0,a1,a2,a3;
+    	a0=a1=a2=a3=0;
     	
-    	for (int i = 0; i < instrAssignmentList.size(); i++)
-    	{    		
-    		assignCorrect = instrAssignmentList.get(i).getCorrect(); // list of correct selections for single assignment
-    		int x = studentList.get(i).getAList().get(num).getQuestionList().get(i).getSelectedAnswer(); // single student selected answer
+    	for (int i = 0; i < studentList.size(); i++){
+    		StudentAssignment temp = studentList.get(i).findAssignemnt(asst.getTStamp());
+    		Question tempQ = temp.getQuestionList().get(index);
+    		
+    		if (tempQ.getSelectedAnswer()==0)
+    			a0++;
+    		else if (tempQ.getSelectedAnswer()==1)
+    			a1++;
+    		else if (tempQ.getSelectedAnswer()==2)
+    			a2++;
+    		else if (tempQ.getSelectedAnswer()==3)
+    			a3++;
     		
     	}
+    	
+    	if (studentList.size()!=0){
+    		a0/=studentList.size();
+    		a1/=studentList.size();
+    		a2/=studentList.size();
+    		a3/=studentList.size();
+    	}
+    	
+    	v.add(a0);
+    	v.add(a1);
+    	v.add(a2);
+    	v.add(a3);
+    	return v;
     }
-   */ 
 }

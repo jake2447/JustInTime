@@ -10,6 +10,7 @@ public class editAssignPopup extends JFrame
     private JButton add, edit, delete;
     private JTextField prompt;
     private JPanel box, inside;
+    private JScrollPane listscroll;
     private addQuestionPopup addQ;
     private Assignment x;
     private editQuestionPopup editQ;
@@ -20,15 +21,17 @@ public class editAssignPopup extends JFrame
     public editAssignPopup(Assignment a, Members mem)
     {
     	this.mem = mem;
-    	x =a; // this may cause a reference problem
+    	x =a; 
         setSize(600, 300);
         ept = this;
         
         qList = a.getQuestionList();
 
         qs = new JList(qList);        
-        qs.setSize(300,150);
         
+        
+        JScrollPane listscroll = new JScrollPane(qs);
+        listscroll.setSize(300,150);
         
         box = new JPanel();
         box.setLayout(new GridLayout(1,3));
@@ -36,7 +39,7 @@ public class editAssignPopup extends JFrame
         inside = new JPanel();
         inside.setLayout(new GridLayout(3,1));
         
-        prompt = new JTextField(a.getName());
+        prompt = new JTextField("Currently editing assignment: " + a.getName());
         prompt.setEditable(false);
         
         add = new JButton("add");
@@ -53,7 +56,7 @@ public class editAssignPopup extends JFrame
         box.setVisible(true);
         
         inside.add(prompt);
-        inside.add(qs);
+        inside.add(listscroll);
         inside.add(box);
         inside.setVisible(true);
         

@@ -33,10 +33,10 @@ public class Student extends User{
     	assignmentList.add(newAsst);
     }
     
-    public StudentAssignment findAssignemnt(int assignmentNumber)
+    public StudentAssignment findAssignemnt(String tstamp)
     {
     	for (int i = 0; i < assignmentList.size(); i++){
-    		if (assignmentList.get(i).getAssignmentNumber()==assignmentNumber)
+    		if (assignmentList.get(i).getTStamp().equals(tstamp))
     			return assignmentList.get(i);
     	}
     	return null;
@@ -51,21 +51,4 @@ public class Student extends User{
     	return username;
     }
 
-    public void takeAssignment(){
-    	/**if(//assignment doesn't exist){
-    	 *		The program would indicate that there 
-    	 *		was an error and return the student to the main menu
-    	 * }
-    	 * else{
-    	 * 		if(//assignment is already complete){
-    	 * 			The program would indicate that the assignment is 
-    	 * 			already complete and return the student to the main menu
-    	 * 		}
-    	 * 		else{
-    	 * 			The student takes the assignment
-    	 * 		}
-    	 * }
-    	 * 
-    	 */
-    }
 }
