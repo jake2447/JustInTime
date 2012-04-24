@@ -2,6 +2,9 @@
 //	Date Modified:		4/10/12
 //	Filename:			Assignment.java
 
+//this assignment type is for the instructor...it is what is edited before being assigned
+//it serves as a template for student assignments when it is assigned
+
 import java.util.*;
 import java.io.Serializable;
 import java.text.DateFormat;
@@ -12,8 +15,8 @@ import java.text.SimpleDateFormat;
 public class Assignment implements Serializable
 {
 	
-	public Vector<Question> questionList;
-	private String assignmentName, tstamp;
+	public Vector<Question> questionList;		//the list of questions in this assignment
+	private String assignmentName, tstamp;		//time stamp is used to find student assignments that were created from this assn.
 	private Calendar dueDate;
 	
 	public Assignment(String aName, String GUIdate)
@@ -34,6 +37,8 @@ public class Assignment implements Serializable
 		dueDate = asst.getDueDate();
 	}
 	
+	//used when assigning to create unique student assignments, otherwise all students would be referencing the same object
+	//the i parameter was used just to overload the constructor and does nothing
 	public Assignment(Assignment asst, int i)
 	{
 		questionList = new Vector<Question>();
@@ -76,7 +81,7 @@ public class Assignment implements Serializable
 		return dueDate.getTime().toString();
 	}
 	
-	
+	//used to format date from input into a Date type
 	public void parseDateFromGUI(String GUIdate) 
 	{
 		DateFormat formatter;
