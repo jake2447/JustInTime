@@ -10,24 +10,24 @@ public class responseStats extends JFrame
 	private JLabel ques, score;
     private JList q,c;
     private JButton select;
-    private Vector<String> questions, numCorrect;
+    private Vector<Question> questions;
+    private Vector<Integer> numCorrect;
     private JPanel box, box2;
     private JComboBox assignList;
     private singleQStats qstats;
+    private Assignment a;
     
-    public responseStats()
+    public responseStats(Assignment x)
     {
         setSize(400,400);
-               
-        questions = new Vector<String>();
-        questions.add("qone");
-        questions.add("qtwo");
-        numCorrect = new Vector<String>();
-        numCorrect.add("35");
-        numCorrect.add("47");
+        a = x;               
+        questions = a.getQuestionList();
         
         assignList = new JComboBox(questions);
         assignList.addActionListener(new pickListener());
+        
+        numCorrect = new Vector<Integer>();
+        numCorrect.add(1);
         
         
         q = new JList(questions);

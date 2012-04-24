@@ -6,33 +6,27 @@ import java.util.*;
 
 public class assignScores extends JPanel
 {
-    private JList assigns;
+    private JList assign;
     private JButton view;
-    private Vector<String> assignments;
+    private Vector<Assignment> assignments;
     private responseStats stats;
+    private Instructor i;
     
-    public assignScores()
+    public assignScores(Instructor instr)
     {
+    	i = instr;
     	setLayout(new GridLayout(2,1));
-        assignments = new Vector<String>();
-        String j = "ghj";
-        for(int i = 1; i<10;i++)
-        {
-            assignments.add(j);
-        }
-        
-        assignments.add("ONe");
+        assignments = i.getAList();
         
         view = new JButton("view");
         view.addActionListener(new view());
         
-        assigns = new JList(assignments);
+        assign = new JList(assignments);
         
-        add(assigns);
+        add(assign);
         add(view);
         
-        setVisible(true);
-        
+        setVisible(true);    
 
     }
     
@@ -40,7 +34,9 @@ public class assignScores extends JPanel
     {
          public void actionPerformed(ActionEvent e)
          {
-            stats = new responseStats();
+        	 Assignment temp = assignments.get(assign.getSelectedIndex());
+        	 System.out.println(temp);
+            stats = new responseStats(temp);
             stats.setVisible(true);
          }
     }

@@ -18,7 +18,7 @@ public class scoresPanel extends JPanel
     	logi = loggedInInstr;
     	
         tabs = new JTabbedPane();
-        aScore = new assignScores();
+        aScore = new assignScores(logi);
         sScores = new studentScores(logi);
         tabs.addTab("List Assignments", aScore);
         tabs.addTab("List Students",sScores);
