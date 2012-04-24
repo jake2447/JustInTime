@@ -29,7 +29,9 @@ public class TestStudent {
 		v1.add("d");
 		q1.setAnswerText(v1);
 		q1.setCorrectAnswer(2);
-		q1.setSelectedAnswer(2);
+		q1.setSelectedAnswer(1);
+		sa1.addQuestion(q1);
+		sa2.addQuestion(q1);
 		sa3.addQuestion(q1);
 		
 		Question q2 = new Question();
@@ -42,6 +44,8 @@ public class TestStudent {
 		q2.setAnswerText(v2);
 		q2.setCorrectAnswer(3);
 		q2.setSelectedAnswer(2);
+		sa1.addQuestion(q2);
+		sa2.addQuestion(q2);
 		sa3.addQuestion(q2);
 		
 		stud.addAssignment(sa1);
