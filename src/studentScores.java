@@ -50,7 +50,7 @@ public class studentScores extends JPanel {
 
 	private class singleView implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			stu = new singleStudent();
+			stu = new singleStudent((Student)(students.getSelectedValue()));
 			stu.setVisible(true);
 		}
 	}
