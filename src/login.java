@@ -19,6 +19,8 @@ public class login extends JFrame {
 		correct = false;
 		
 		memList = mem;
+		
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		this.setSize(new Dimension(300, 200));
 
